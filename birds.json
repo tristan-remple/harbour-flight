@@ -1,0 +1,571 @@
+[
+    {
+        "commonName": "template",
+        "scientificName": {
+            "order": "",
+            "family": "",
+            "genus": "",
+            "species": "",
+            "subSpecies": [
+                ""
+            ]
+        },
+        "observations": 0,
+        "birdSeen": [
+            2, 7
+        ],
+        "hours": [
+            10, 16
+        ],
+        "locations": [
+            {
+                "title": "",
+                "lat": 0.3,
+                "lon": 0.3
+            }
+        ],
+        "photo": ""
+    },
+    {
+        "commonName": "Willet",
+        "scientificName": {
+            "order": "Charadriiformes",
+            "family": "Scolopacidae",
+            "genus": "Tringa",
+            "species": "T. semipalmata",
+            "subSpecies": [
+                "T. s. inornata",
+                "T. s. semipalmata"
+            ]
+        },
+        "observations": 12,
+        "birdSeen": [
+            4, 8
+        ],
+        "hours": [
+            9, 16
+        ],
+        "locations": [
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            },
+            {
+                "title": "Rainbow Haven Beach",
+                "lat": 44.653604,
+                "lon": -63.42235
+            },
+            {
+                "title": "Fisherman's Cove",
+                "lat": 44.607886,
+                "lon": -63.493342
+            }
+        ],
+        "photo": "willet.jpg"
+    },
+    {
+        "commonName": "Greater Yellowlegs",
+        "scientificName": {
+            "order": "Charadriiformes",
+            "family": "Scolopacidae",
+            "genus": "Tringa",
+            "species": "T. melanoleuca",
+            "subSpecies": [
+
+            ]
+        },
+        "observations": 9,
+        "birdSeen": [
+            7, 9
+        ],
+        "hours": [
+            8, 16
+        ],
+        "locations": [
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            },
+            {
+                "title": "Rainbow Haven Beach",
+                "lat": 44.653604,
+                "lon": -63.42235
+            }
+        ],
+        "photo": "greatyellowlegs.jpg"
+    },
+    {
+        "commonName": "Mallard Duck",
+        "scientificName": {
+            "order": "Anseriformes",
+            "family": "Anatidae",
+            "genus": "Anas",
+            "species": "A. platyrhynchos",
+            "subSpecies": [
+                "A. p. platyrhynchos",
+                "A. p. domesticus",
+                "A. p. conboschas"
+            ]
+        },
+        "observations": 9,
+        "birdSeen": [
+            5, 11
+        ],
+        "hours": [
+            8, 12
+        ],
+        "locations": [
+            {
+                "title": "Port Wallace",
+                "lat": 44.702378,
+                "lon": -63.554963
+            },
+            {
+                "title": "Forest Hills",
+                "lat": 44.675014,
+                "lon": -63.480597
+            },
+            {
+                "title": "Cole Harbour",
+                "lat": 44.665891,
+                "lon": -63.459633
+            },
+            {
+                "title": "Lawrencetown",
+                "lat": 44.662145,
+                "lon": -63.37312
+            }
+        ],
+        "photo": "mallard.jpg"
+    },
+    {
+        "commonName": "Herring Gull",
+        "scientificName": {
+            "order": "Charadriiformes",
+            "family": "Laridae",
+            "genus": "Larus",
+            "species": "L. argentatus",
+            "subSpecies": [
+
+            ]
+        },
+        "observations": 8,
+        "birdSeen": [
+            3, 10
+        ],
+        "hours": [
+            8, 16
+        ],
+        "locations": [
+            {
+                "title": "Cole Harbour",
+                "lat": 44.665891,
+                "lon": -63.459633
+            },
+            {
+                "title": "Lawrencetown",
+                "lat": 44.662145,
+                "lon": -63.37312
+            },
+            {
+                "title": "Cow Bay",
+                "lat": 44.645055,
+                "lon": -63.420462
+            }
+        ],
+        "photo": "seagull.jpg"
+    },
+    {
+        "commonName": "Great Blue Heron",
+        "scientificName": {
+            "order": "Pelecaniformes",
+            "family": "Ardeidae",
+            "genus": "Ardea",
+            "species": "A. herodias",
+            "subSpecies": [
+                "A. h. herodias",
+                "A. h. fannini",
+                "A. h. wardi",
+                "A. h. occidentalis",
+                "A. h. cognata"
+            ]
+        },
+        "observations": 7,
+        "birdSeen": [
+            7, 9
+        ],
+        "hours": [
+            8, 11
+        ],
+        "locations": [
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            },
+            {
+                "title": "Rainbow Haven Beach",
+                "lat": 44.653604,
+                "lon": -63.42235
+            },
+            {
+                "title": "Atlantic View Trail",
+                "lat": 44.64906,
+                "lon": -63.355315
+            },
+            {
+                "title": "Fisherman's Cove",
+                "lat": 44.607886,
+                "lon": -63.493342
+            }
+        ],
+        "photo": "heron.jpg"
+    },
+    {
+        "commonName": "Red-winged Blackbird",
+        "scientificName": {
+            "order": "Passeriformes",
+            "family": "Icteridae",
+            "genus": "Agelaius",
+            "species": "A. phoeniceus",
+            "subSpecies": [
+                "A. p. aciculatus",
+                "A. p. arctolegus",
+                "A. p. arthuralleni",
+                "A. p. brevirostris",
+                "A. p. bryanti",
+                "A. p. californicus",
+                "A. p. caurinus",
+                "A. p. floridanus",
+                "A. p. fortis",
+                "A. p. grinnelli",
+                "A. p. gubernator",
+                "A. p. littoralis",
+                "A. p. mailliardorum",
+                "A. p. mearnsi",
+                "A. p. megapotamus",
+                "A. p. nelsoni",
+                "A. p. neutralis",
+                "A. p. nevadensis",
+                "A. p. nyaritensis",
+                "A. p. phoeniceus",
+                "A. p. richmondi",
+                "A. p. sonoriensis"
+            ]
+        },
+        "observations": 7,
+        "birdSeen": [
+            4, 6
+        ],
+        "hours": [
+            8, 19
+        ],
+        "locations": [
+            {
+                "title": "Forest Hills",
+                "lat": 44.675014,
+                "lon": -63.480597
+            },
+            {
+                "title": "Westphal",
+                "lat": 44.683476,
+                "lon": -63.476822
+            },
+            {
+                "title": "Old St. Lawrence Trail",
+                "lat": 44.683589,
+                "lon": -63.472556
+            },
+            {
+                "title": "Colby Village",
+                "lat": 44.664604,
+                "lon": -63.475938
+            },
+            {
+                "title": "Atlantic View Trail",
+                "lat": 44.64906,
+                "lon": -63.355315
+            }
+        ],
+        "photo": "redwing.jpg"
+    },
+    {
+        "commonName": "Semipalmated Plover",
+        "scientificName": {
+            "order": "Charadriiformes",
+            "family": "Charadriidae",
+            "genus": "Charadrius",
+            "species": "C. semipalmatus",
+            "subSpecies": [
+
+            ]
+        },
+        "observations": 6,
+        "birdSeen": [
+            8, 10
+        ],
+        "hours": [
+            9, 20
+        ],
+        "locations": [
+            {
+                "title": "Lawrencetown Coastal Heritage Park",
+                "lat": 44.643635,
+                "lon": -63.332964
+            },
+            {
+                "title": "Spry Bay",
+                "lat": 44.810229,
+                "lon": -62.559646
+            },
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            }
+        ],
+        "photo": "semi.jpg"
+    },
+    {
+        "commonName": "Osprey",
+        "scientificName": {
+            "order": "Accipitriformes",
+            "family": "Pandionidae",
+            "genus": "Pandion",
+            "species": "P. haliaetus",
+            "subSpecies": [
+                "Pandion haliaetus haliaetus",
+                "P. haliaetus carolinensis",
+                "P. haliaetus ridgwayi",
+                "P. haliaetus cristatus"
+            ]
+        },
+        "observations": 6,
+        "birdSeen": [
+            4, 8
+        ],
+        "hours": [
+            9, 19
+        ],
+        "locations": [
+            {
+                "title": "Westphal",
+                "lat": 44.683476,
+                "lon": -63.476822
+            },
+            {
+                "title": "East Preston",
+                "lat": 44.702953,
+                "lon": -63.441345
+            },
+            {
+                "title": "Hartlen Point",
+                "lat": 44.595545,
+                "lon": -63.445355
+            },
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            },
+            {
+                "title": "McNabs Island",
+                "lat": 44.60381,
+                "lon": -63.517662
+            },
+            {
+                "title": "Russell Lake West",
+                "lat": 44.664761,
+                "lon": -63.527317
+            }
+        ],
+        "photo": "osprey.jpg"
+    },
+    {
+        "commonName": "Savannah Sparrow",
+        "scientificName": {
+            "order": "Passeriformes",
+            "family": "Passerellidae",
+            "genus": "Passerculus",
+            "species": "P. sandwichensis",
+            "subSpecies": [
+                "P. s. labradorius",
+                "P. s. oblitus",
+                "P. s. savanna",
+                "P. s. sandwichensis",
+                "P. s. anthinus",
+                "P. s. brooksi",
+                "P. s. alaudinus",
+                "P. s. nevadensis",
+                "P. s. brunnescens",
+                "P. s. princeps"
+            ]
+        },
+        "observations": 6,
+        "birdSeen": [
+            7, 9
+        ],
+        "hours": [
+            8, 16
+        ],
+        "locations": [
+            {
+                "title": "East Petpeswick",
+                "lat": 44.688473,
+                "lon": -63.105697
+            },
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            },
+            {
+                "title": "Sambro Creek",
+                "lat": 44.435141,
+                "lon": -63.640057
+            },
+            {
+                "title": "Rainbow Haven Beach",
+                "lat": 44.653604,
+                "lon": -63.42235
+            },
+            {
+                "title": "Port Wallace",
+                "lat": 44.702378,
+                "lon": -63.554963
+            }
+        ],
+        "photo": "savannah sparrow.jpg"
+    },
+    {
+        "commonName": "Sanderling",
+        "scientificName": {
+            "order": "Charadriiformes",
+            "family": "Scolopacidae",
+            "genus": "Calidris",
+            "species": "C. alba",
+            "subSpecies": [
+                "C. a. alba",
+                "C. a. rubida"
+            ]
+        },
+        "observations": 5,
+        "birdSeen": [
+            7, 10
+        ],
+        "hours": [
+            9, 19
+        ],
+        "locations": [
+            {
+                "title": "Rainbow Haven Beach",
+                "lat": 44.653604,
+                "lon": -63.42235
+            },
+            {
+                "title": "Spry Bay",
+                "lat": 44.810229,
+                "lon": -62.559646
+            },
+            {
+                "title": "Lawrencetown Beach",
+                "lat": 44.643915,
+                "lon": -63.375507
+            },
+            {
+                "title": "East Petpeswick",
+                "lat": 44.688473,
+                "lon": -63.105697
+            },
+            {
+                "title": "Atlantic View Trail",
+                "lat": 44.64906,
+                "lon": -63.355315
+            }
+        ],
+        "photo": ""
+    },
+    {
+        "commonName": "Common Eider",
+        "scientificName": {
+            "order": "Anseriformes",
+            "family": "Anatidae",
+            "genus": "Somateria",
+            "species": "S. mollissima",
+            "subSpecies": [
+                "S. m. v-nigrum",
+                "S. m. borealis",
+                "S. m. sedentaria Snyder",
+                "S. m. dresseri",
+                "S. m. faeroeensis",
+                "S. m. mollissima"
+            ]
+        },
+        "observations": 5,
+        "birdSeen": [
+            4, 9
+        ],
+        "hours": [
+            9, 14
+        ],
+        "locations": [
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            },
+            {
+                "title": "Dartmouth Cove",
+                "lat": 44.662975,
+                "lon": -63.560597
+            },
+            {
+                "title": "Rainbow Haven Beach",
+                "lat": 44.653604,
+                "lon": -63.42235
+            },
+            {
+                "title": "Hartlen Point",
+                "lat": 44.595545,
+                "lon": -63.445355
+            }
+        ],
+        "photo": "eider.jpg"
+    },
+    {
+        "commonName": "Song Sparrow",
+        "scientificName": {
+            "order": "Passeriformes",
+            "family": "Passerellidae",
+            "genus": "Melospiza",
+            "species": "M. melodia",
+            "subSpecies": [
+                "Melospiza melodia melodia",
+                "Melospiza melodia atlantica",
+                "Melospiza melodia montana"
+            ]
+        },
+        "observations": 5,
+        "birdSeen": [
+            1, 12
+        ],
+        "hours": [
+            7, 16
+        ],
+        "locations": [
+            {
+                "title": "Forest Hills",
+                "lat": 44.675014,
+                "lon": -63.480597
+            },
+            {
+                "title": "Auburn",
+                "lat": 44.686943,
+                "lon": -63.481708
+            }
+        ],
+        "photo": "sparrow.jpg"
+    }
+]
