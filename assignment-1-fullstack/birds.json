@@ -567,5 +567,32 @@
             }
         ],
         "photo": "sparrow.jpg"
+    },
+    {
+        "commonName": "template",
+        "scientificName": {
+            "order": "",
+            "family": "",
+            "genus": "",
+            "species": "",
+            "subSpecies": [
+                ""
+            ]
+        },
+        "observations": 0,
+        "birdSeen": [
+            2, 7
+        ],
+        "hours": [
+            10, 16
+        ],
+        "locations": [
+            {
+                "title": "",
+                "lat": 0.3,
+                "lon": 0.3
+            }
+        ],
+        "photo": ""
     }
 ]
