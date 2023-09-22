@@ -1,0 +1,343 @@
+{
+    "modelName": "New Model",
+    "collections": [
+        {
+            "collectionName": "birds",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "_id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "c791c3d7-1031-4979-8bfd-711decf7c408",
+                    "required": true,
+                    "primaryKey": true,
+                    "error": {}
+                },
+                {
+                    "name": "commonName",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "5d8fff40-2ffc-481b-a608-d44e7ce05289",
+                    "error": {}
+                },
+                {
+                    "name": "scientificName",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "document",
+                    "properties": [
+                        {
+                            "name": "order",
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "a60226ec-6a8d-4609-8020-e54a2951ed43",
+                            "error": {}
+                        },
+                        {
+                            "name": "family",
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "921444b3-cd9b-4521-8410-69ced54dd5d9",
+                            "error": {}
+                        },
+                        {
+                            "name": "genus",
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "99aee9ee-53d9-4b9e-b297-59716b29f73b",
+                            "error": {}
+                        },
+                        {
+                            "name": "species",
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "a8b502f4-88e9-45f8-9535-5a5dfe7f0006",
+                            "error": {}
+                        },
+                        {
+                            "name": "subSpecies",
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "array",
+                            "properties": [
+                                {
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "string",
+                                    "GUID": "1d81838e-d86c-4fbc-96e7-c64b4003f4fe",
+                                    "arrayItem": true
+                                }
+                            ],
+                            "additionalItems": true,
+                            "GUID": "68a2a9b3-667d-4641-915b-4a31e855e3f6",
+                            "error": {}
+                        }
+                    ],
+                    "additionalProperties": false,
+                    "GUID": "0e60ea71-3e6e-4f09-8086-f667e0608a0c",
+                    "error": {}
+                },
+                {
+                    "name": "observations",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "numeric",
+                    "GUID": "cc370172-d9e7-44ee-9d5e-5cb80fd2ed14",
+                    "error": {}
+                },
+                {
+                    "name": "birdSeen",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "array",
+                    "properties": [
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "numeric",
+                            "error": {},
+                            "GUID": "51a6b852-2ea7-4beb-b348-e8699d65a662",
+                            "arrayItem": true
+                        }
+                    ],
+                    "additionalItems": true,
+                    "GUID": "bf4ee029-3b2b-44ad-a65e-0eddc92e0ff7",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "error": {}
+                },
+                {
+                    "name": "hours",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "array",
+                    "properties": [
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "numeric",
+                            "error": {},
+                            "GUID": "8b313452-5f0e-438e-9471-3602b665a1cc",
+                            "arrayItem": true
+                        }
+                    ],
+                    "additionalItems": true,
+                    "GUID": "90fec73d-3366-408b-b4eb-fa3c47bef870",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "error": {}
+                },
+                {
+                    "name": "locations",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "array",
+                    "properties": [
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "document",
+                            "properties": [
+                                {
+                                    "name": "title",
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "string",
+                                    "GUID": "679f1e09-a009-48e5-9189-2d30946ef73b",
+                                    "error": {}
+                                },
+                                {
+                                    "name": "lat",
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "numeric",
+                                    "GUID": "f13f5b49-f795-4ec6-8cb8-0b0b26203cd9",
+                                    "error": {}
+                                },
+                                {
+                                    "name": "lon",
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "numeric",
+                                    "GUID": "834ca950-0a86-4431-9a98-e465a6da4d9a",
+                                    "error": {}
+                                }
+                            ],
+                            "additionalProperties": false,
+                            "error": {},
+                            "GUID": "dd35a12e-0eb0-45be-9275-5c0b42d0acc1",
+                            "arrayItem": true
+                        }
+                    ],
+                    "additionalItems": true,
+                    "GUID": "e76bce8d-4343-4a75-a808-2c59c87e05a4",
+                    "error": {}
+                },
+                {
+                    "name": "photo",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "dfa82128-5d27-4968-8412-22258fa7a485",
+                    "error": {}
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "905c26cb-44c4-4cfb-a5fd-22e6892a0116"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "feac7408-27bf-4fdd-9f30-b497f58a248d",
+            "bucketId": "238d60c8-7c47-4d18-8fb5-ef7d96476471"
+        }
+    ],
+    "buckets": [
+        {
+            "name": "harbour-flight",
+            "type": "bucket",
+            "collectionIds": [
+                "feac7408-27bf-4fdd-9f30-b497f58a248d"
+            ],
+            "backgroundColor": {
+                "r": 216,
+                "g": 0,
+                "b": 115,
+                "a": 1
+            },
+            "show": true,
+            "isActivated": true,
+            "GUID": "238d60c8-7c47-4d18-8fb5-ef7d96476471",
+            "hackoladeMeta": {}
+        }
+    ],
+    "views": [],
+    "relationships": [],
+    "users": [],
+    "diagramViews": [],
+    "idToNameHashTable": {
+        "238d60c8-7c47-4d18-8fb5-ef7d96476471": "harbour-flight",
+        "feac7408-27bf-4fdd-9f30-b497f58a248d": "birds",
+        "c791c3d7-1031-4979-8bfd-711decf7c408": "_id",
+        "5d8fff40-2ffc-481b-a608-d44e7ce05289": "commonName",
+        "0e60ea71-3e6e-4f09-8086-f667e0608a0c": "scientificName",
+        "a60226ec-6a8d-4609-8020-e54a2951ed43": "order",
+        "921444b3-cd9b-4521-8410-69ced54dd5d9": "family",
+        "99aee9ee-53d9-4b9e-b297-59716b29f73b": "genus",
+        "a8b502f4-88e9-45f8-9535-5a5dfe7f0006": "species",
+        "68a2a9b3-667d-4641-915b-4a31e855e3f6": "subSpecies",
+        "cc370172-d9e7-44ee-9d5e-5cb80fd2ed14": "observations",
+        "bf4ee029-3b2b-44ad-a65e-0eddc92e0ff7": "birdSeen",
+        "90fec73d-3366-408b-b4eb-fa3c47bef870": "hours",
+        "e76bce8d-4343-4a75-a808-2c59c87e05a4": "locations",
+        "679f1e09-a009-48e5-9189-2d30946ef73b": "title",
+        "f13f5b49-f795-4ec6-8cb8-0b0b26203cd9": "lat",
+        "834ca950-0a86-4431-9a98-e465a6da4d9a": "lon",
+        "dfa82128-5d27-4968-8412-22258fa7a485": "photo"
+    },
+    "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "e072c40d-d575-4a88-bcce-b2bac4dbc299"
+    },
+    "polyglotDefinitions": {
+        "type": "polyglotDefinitions",
+        "properties": [],
+        "GUID": "8e70cf69-9d83-4086-8ace-298242610aa0"
+    },
+    "externalDefinitions": {
+        "type": "externalDefinitions",
+        "properties": [],
+        "GUID": "4e887d62-a3d0-44f5-b4cd-705e54952c28"
+    },
+    "sources": [],
+    "decorativeSymbols": [],
+    "dbVersion": "v7.x",
+    "dbVendor": "MongoDB",
+    "appTarget": "MONGODB",
+    "creationTS": "2023-09-22T16:17:30.087Z",
+    "GUID": "c6122cc5-b59e-4cb9-8c17-d50e5e613c17",
+    "isLineageEnabled": false,
+    "lastModifTS": "2023-09-22T16:23:30.482Z",
+    "persistenceSchemaVersion": "6",
+    "isCreatedByPlugin": true,
+    "pluginInformation": {
+        "pluginEngineVersion": "1.0.0"
+    },
+    "applicationInformation": {
+        "version": "6.11.1"
+    },
+    "settings": {
+        "centralPane": {
+            "dbLevel": {
+                "erd": [
+                    {
+                        "GUID": "feac7408-27bf-4fdd-9f30-b497f58a248d",
+                        "x": 1080,
+                        "y": 1080,
+                        "width": 228,
+                        "height": 393,
+                        "color": {}
+                    }
+                ],
+                "erdDefinitions": {
+                    "erd": [],
+                    "rootPath": [],
+                    "entities": [],
+                    "decorativeSymbols": []
+                },
+                "buckets": [
+                    {
+                        "x": 1040,
+                        "y": 1040,
+                        "GUID": "238d60c8-7c47-4d18-8fb5-ef7d96476471"
+                    }
+                ],
+                "collapsedNodes": [],
+                "activeRelationship": "",
+                "activeRelationshipFields": {
+                    "childField": [],
+                    "parentField": []
+                },
+                "selectedCollections": [],
+                "displayColorPicker": false,
+                "graphView": {
+                    "erd": [],
+                    "buckets": [],
+                    "decorativeSymbols": [],
+                    "forceLayout": true,
+                    "defaultLinkLength": 300
+                },
+                "diagramViews": [],
+                "decorativeSymbols": [],
+                "nestedCollectionsLayout": "horizontal",
+                "options": [],
+                "relationshipUpdateDisabled": false
+            },
+            "collectionLevel": {},
+            "changed": false
+        },
+        "dtDiagram": {
+            "collapsedNodes": [],
+            "shouldDistributeCollections": false
+        }
+    }
+}
