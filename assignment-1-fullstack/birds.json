@@ -569,30 +569,195 @@
         "photo": "sparrow.jpg"
     },
     {
-        "commonName": "template",
+        "commonName": "American Wigeon",
         "scientificName": {
-            "order": "",
-            "family": "",
-            "genus": "",
-            "species": "",
+            "order": "Anseriformes",
+            "family": "Anatidae",
+            "genus": "Mareca",
+            "species": "M. americana",
             "subSpecies": [
-                ""
+
             ]
         },
-        "observations": 0,
+        "observations": 8,
         "birdSeen": [
-            2, 7
+            4, 10
         ],
         "hours": [
-            10, 16
+            8, 19
         ],
         "locations": [
             {
-                "title": "",
-                "lat": 0.3,
-                "lon": 0.3
+                "title": "Atlantic View Trail",
+                "lat": 44.64906,
+                "lon": -63.355315
+            },
+            {
+                "title": "Lake Echo",
+                "lat": 44.73064,
+                "lon": -63.390482
             }
         ],
-        "photo": ""
+        "photo": "wigeon.jpg"
+    },
+    {
+        "commonName": "Ring-billed Gull",
+        "scientificName": {
+            "order": "Charadriiformes",
+            "family": "Laridae",
+            "genus": "Larus",
+            "species": "L. delawarensis",
+            "subSpecies": [
+
+            ]
+        },
+        "observations": 6,
+        "birdSeen": [
+            7, 10
+        ],
+        "hours": [
+            8, 17
+        ],
+        "locations": [
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            },
+            {
+                "title": "Lawrencetown Beach",
+                "lat": 44.643915,
+                "lon": -63.375507
+            },
+            {
+                "title": "Rainbow Haven Beach",
+                "lat": 44.653604,
+                "lon": -63.42235
+            },
+            {
+                "title": "Fisherman's Cove",
+                "lat": 44.607886,
+                "lon": -63.493342
+            }
+        ],
+        "photo": "ringbill.jpg"
+    },
+    {
+        "commonName": "Double-crested Cormorant",
+        "scientificName": {
+            "order": "Suliformes",
+            "family": "Phalacrocoracidae",
+            "genus": "Nannopterum",
+            "species": "N. auritum",
+            "subSpecies": [
+                "N. a. albociliatum",
+                "N. a. auritum",
+                "N. a. cincinnatum",
+                "N. a. floridanum",
+                "N. a. heuretum"
+            ]
+        },
+        "observations": 6,
+        "birdSeen": [
+            5, 9
+        ],
+        "hours": [
+            8, 11
+        ],
+        "locations": [
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            },
+            {
+                "title": "Atlantic View Trail",
+                "lat": 44.64906,
+                "lon": -63.355315
+            },
+            {
+                "title": "Fisherman's Cove",
+                "lat": 44.607886,
+                "lon": -63.493342
+            }
+        ],
+        "photo": "crested-corm.jpg"
+    },
+    {
+        "commonName": "Mourning Dove",
+        "scientificName": {
+            "order": "Columbiformes",
+            "family": "Columbidae",
+            "genus": "Zenaida",
+            "species": "Z. macroura",
+            "subSpecies": [
+                "Zenaida macroura marginella",
+                "Zenaida macroura carolinensis",
+                "Zenaida macroura macroura",
+                "Zenaida macroura clarionensis",
+                "Zenaida macroura turturilla"
+            ]
+        },
+        "observations": 5,
+        "birdSeen": [
+            1, 12
+        ],
+        "hours": [
+            7, 19
+        ],
+        "locations": [
+            {
+                "title": "Auburn",
+                "lat": 44.686943,
+                "lon": -63.481708
+            },
+            {
+                "title": "Williams Lake",
+                "lat": 44.609618,
+                "lon": -63.608071
+            }
+        ],
+        "photo": "mourning.jpg"
+    },
+    {
+        "commonName": "American Crow",
+        "scientificName": {
+            "order": "Passeriformes",
+            "family": "Corvidae",
+            "genus": "Corvus",
+            "species": "C. brachyrhynchos",
+            "subSpecies": [
+                "C. b. brachyrhynchos",
+                "C. b. hesperis",
+                "C. b. caurinus",
+                "C. b. pascuus",
+                "C. b. paulus"
+            ]
+        },
+        "observations": 5,
+        "birdSeen": [
+            1, 12
+        ],
+        "hours": [
+            10, 17
+        ],
+        "locations": [
+            {
+                "title": "Colby Village",
+                "lat": 44.664604,
+                "lon": -63.475938
+            },
+            {
+                "title": "Auburn",
+                "lat": 44.686943,
+                "lon": -63.481708
+            },
+            {
+                "title": "Salt Marsh Trail",
+                "lat": 44.661509,
+                "lon": -63.431121
+            }
+        ],
+        "photo": "crow.jpg"
     }
 ]
