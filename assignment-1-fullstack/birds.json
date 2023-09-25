@@ -1,32 +1,5 @@
 [
     {
-        "commonName": "template",
-        "scientificName": {
-            "order": "",
-            "family": "",
-            "genus": "",
-            "species": "",
-            "subSpecies": [
-                ""
-            ]
-        },
-        "observations": 0,
-        "birdSeen": [
-            2, 7
-        ],
-        "hours": [
-            10, 16
-        ],
-        "locations": [
-            {
-                "title": "",
-                "lat": 0.3,
-                "lon": 0.3
-            }
-        ],
-        "photo": ""
-    },
-    {
         "commonName": "Willet",
         "scientificName": {
             "order": "Charadriiformes",
@@ -70,10 +43,7 @@
             "order": "Charadriiformes",
             "family": "Scolopacidae",
             "genus": "Tringa",
-            "species": "T. melanoleuca",
-            "subSpecies": [
-
-            ]
+            "species": "T. melanoleuca"
         },
         "observations": 9,
         "birdSeen": [
@@ -146,10 +116,7 @@
             "order": "Charadriiformes",
             "family": "Laridae",
             "genus": "Larus",
-            "species": "L. argentatus",
-            "subSpecies": [
-
-            ]
+            "species": "L. argentatus"
         },
         "observations": 8,
         "birdSeen": [
@@ -297,10 +264,7 @@
             "order": "Charadriiformes",
             "family": "Charadriidae",
             "genus": "Charadrius",
-            "species": "C. semipalmatus",
-            "subSpecies": [
-
-            ]
+            "species": "C. semipalmatus"
         },
         "observations": 6,
         "birdSeen": [
@@ -574,10 +538,7 @@
             "order": "Anseriformes",
             "family": "Anatidae",
             "genus": "Mareca",
-            "species": "M. americana",
-            "subSpecies": [
-
-            ]
+            "species": "M. americana"
         },
         "observations": 8,
         "birdSeen": [
@@ -606,10 +567,7 @@
             "order": "Charadriiformes",
             "family": "Laridae",
             "genus": "Larus",
-            "species": "L. delawarensis",
-            "subSpecies": [
-
-            ]
+            "species": "L. delawarensis"
         },
         "observations": 6,
         "birdSeen": [
