@@ -12,12 +12,14 @@
             ]
         },
         "observations": 12,
-        "birdSeen": [
-            4, 8
-        ],
-        "hours": [
-            9, 16
-        ],
+        "months": {
+            "first": 4,
+            "last": 8
+        },
+        "hours": {
+            "first": 9,
+            "last": 16
+        },
         "locations": [
             {
                 "title": "Salt Marsh Trail",
@@ -46,12 +48,14 @@
             "species": "T. melanoleuca"
         },
         "observations": 9,
-        "birdSeen": [
-            7, 9
-        ],
-        "hours": [
-            8, 16
-        ],
+        "months": {
+            "first": 7,
+            "last": 9
+        },
+        "hours": {
+            "first": 8,
+            "last": 16
+        },
         "locations": [
             {
                 "title": "Salt Marsh Trail",
@@ -80,12 +84,14 @@
             ]
         },
         "observations": 9,
-        "birdSeen": [
-            5, 11
-        ],
-        "hours": [
-            8, 12
-        ],
+        "months": {
+            "first": 5,
+            "last": 11
+        },
+        "hours": {
+            "first": 8,
+            "last": 12
+        },
         "locations": [
             {
                 "title": "Port Wallace",
@@ -119,12 +125,14 @@
             "species": "L. argentatus"
         },
         "observations": 8,
-        "birdSeen": [
-            3, 10
-        ],
-        "hours": [
-            8, 16
-        ],
+        "months": {
+            "first": 3,
+            "last": 10
+        },
+        "hours": {
+            "first": 8,
+            "last": 16
+        },
         "locations": [
             {
                 "title": "Cole Harbour",
@@ -160,12 +168,14 @@
             ]
         },
         "observations": 7,
-        "birdSeen": [
-            7, 9
-        ],
-        "hours": [
-            8, 11
-        ],
+        "months": {
+            "first": 7,
+            "last": 9
+        },
+        "hours": {
+            "first": 8,
+            "last": 11
+        },
         "locations": [
             {
                 "title": "Salt Marsh Trail",
@@ -223,12 +233,14 @@
             ]
         },
         "observations": 7,
-        "birdSeen": [
-            4, 6
-        ],
-        "hours": [
-            8, 19
-        ],
+        "months": {
+            "first": 4,
+            "last": 6
+        },
+        "hours": {
+            "first": 8,
+            "last": 19
+        },
         "locations": [
             {
                 "title": "Forest Hills",
@@ -267,12 +279,14 @@
             "species": "C. semipalmatus"
         },
         "observations": 6,
-        "birdSeen": [
-            8, 10
-        ],
-        "hours": [
-            9, 20
-        ],
+        "months": {
+            "first": 8,
+            "last": 10
+        },
+        "hours": {
+            "first": 9,
+            "last": 20
+        },
         "locations": [
             {
                 "title": "Lawrencetown Coastal Heritage Park",
@@ -307,12 +321,14 @@
             ]
         },
         "observations": 6,
-        "birdSeen": [
-            4, 8
-        ],
-        "hours": [
-            9, 19
-        ],
+        "months": {
+            "first": 4,
+            "last": 8
+        },
+        "hours": {
+            "first": 9,
+            "last": 19
+        },
         "locations": [
             {
                 "title": "Westphal",
@@ -368,12 +384,14 @@
             ]
         },
         "observations": 6,
-        "birdSeen": [
-            7, 9
-        ],
-        "hours": [
-            8, 16
-        ],
+        "months": {
+            "first": 7,
+            "last": 9
+        },
+        "hours": {
+            "first": 8,
+            "last": 16
+        },
         "locations": [
             {
                 "title": "East Petpeswick",
@@ -416,12 +434,14 @@
             ]
         },
         "observations": 5,
-        "birdSeen": [
-            7, 10
-        ],
-        "hours": [
-            9, 19
-        ],
+        "months": {
+            "first": 7,
+            "last": 10
+        },
+        "hours": {
+            "first": 9,
+            "last": 19
+        },
         "locations": [
             {
                 "title": "Rainbow Haven Beach",
@@ -468,12 +488,14 @@
             ]
         },
         "observations": 5,
-        "birdSeen": [
-            4, 9
-        ],
-        "hours": [
-            9, 14
-        ],
+        "months": {
+            "first": 4,
+            "last": 9
+        },
+        "hours": {
+            "first": 9,
+            "last": 14
+        },
         "locations": [
             {
                 "title": "Salt Marsh Trail",
@@ -512,12 +534,14 @@
             ]
         },
         "observations": 5,
-        "birdSeen": [
-            1, 12
-        ],
-        "hours": [
-            7, 16
-        ],
+        "months": {
+            "first": 1,
+            "last": 12
+        },
+        "hours": {
+            "first": 7,
+            "last": 16
+        },
         "locations": [
             {
                 "title": "Forest Hills",
@@ -541,12 +565,14 @@
             "species": "M. americana"
         },
         "observations": 8,
-        "birdSeen": [
-            4, 10
-        ],
-        "hours": [
-            8, 19
-        ],
+        "months": {
+            "first": 4,
+            "last": 10
+        },
+        "hours": {
+            "first": 8,
+            "last": 19
+        },
         "locations": [
             {
                 "title": "Atlantic View Trail",
@@ -570,12 +596,14 @@
             "species": "L. delawarensis"
         },
         "observations": 6,
-        "birdSeen": [
-            7, 10
-        ],
-        "hours": [
-            8, 17
-        ],
+        "months": {
+            "first": 7,
+            "last": 10
+        },
+        "hours": {
+            "first": 8,
+            "last": 17
+        },
         "locations": [
             {
                 "title": "Salt Marsh Trail",
@@ -616,12 +644,14 @@
             ]
         },
         "observations": 6,
-        "birdSeen": [
-            5, 9
-        ],
-        "hours": [
-            8, 11
-        ],
+        "months": {
+            "first": 5,
+            "last": 9
+        },
+        "hours": {
+            "first": 8,
+            "last": 11
+        },
         "locations": [
             {
                 "title": "Salt Marsh Trail",
@@ -657,12 +687,14 @@
             ]
         },
         "observations": 5,
-        "birdSeen": [
-            1, 12
-        ],
-        "hours": [
-            7, 19
-        ],
+        "months": {
+            "first": 1,
+            "last": 12
+        },
+        "hours": {
+            "first": 7,
+            "last": 19
+        },
         "locations": [
             {
                 "title": "Auburn",
@@ -693,12 +725,14 @@
             ]
         },
         "observations": 5,
-        "birdSeen": [
-            1, 12
-        ],
-        "hours": [
-            10, 17
-        ],
+        "months": {
+            "first": 1,
+            "last": 12
+        },
+        "hours": {
+            "first": 10,
+            "last": 17
+        },
         "locations": [
             {
                 "title": "Colby Village",
