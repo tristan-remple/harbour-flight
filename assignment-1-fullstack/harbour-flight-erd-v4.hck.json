@@ -93,46 +93,58 @@
                     "error": {}
                 },
                 {
-                    "name": "birdSeen",
+                    "name": "months",
                     "hackoladeMeta": {},
                     "isActivated": true,
-                    "type": "array",
+                    "type": "document",
                     "properties": [
                         {
+                            "name": "first",
                             "hackoladeMeta": {},
                             "isActivated": true,
                             "type": "numeric",
-                            "error": {},
-                            "GUID": "51a6b852-2ea7-4beb-b348-e8699d65a662",
-                            "arrayItem": true
+                            "GUID": "1f82012d-08f0-4291-a285-009d70b360eb",
+                            "error": {}
+                        },
+                        {
+                            "name": "last",
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "numeric",
+                            "GUID": "4268492e-eb66-423e-b478-8c8376d8db6c",
+                            "error": {}
                         }
                     ],
-                    "additionalItems": true,
+                    "additionalProperties": false,
                     "GUID": "bf4ee029-3b2b-44ad-a65e-0eddc92e0ff7",
-                    "minItems": 2,
-                    "maxItems": 2,
                     "error": {}
                 },
                 {
                     "name": "hours",
                     "hackoladeMeta": {},
                     "isActivated": true,
-                    "type": "array",
+                    "type": "document",
                     "properties": [
                         {
+                            "name": "first",
                             "hackoladeMeta": {},
                             "isActivated": true,
                             "type": "numeric",
-                            "error": {},
-                            "GUID": "8b313452-5f0e-438e-9471-3602b665a1cc",
-                            "arrayItem": true
+                            "GUID": "77435821-c0ff-402b-95ec-5f03fcf44e73",
+                            "error": {}
+                        },
+                        {
+                            "name": "last",
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "numeric",
+                            "GUID": "1361d889-5746-40e4-8bdb-a09d50306e6a",
+                            "error": {}
                         }
                     ],
-                    "additionalItems": true,
-                    "GUID": "90fec73d-3366-408b-b4eb-fa3c47bef870",
-                    "minItems": 2,
-                    "maxItems": 2,
-                    "error": {}
+                    "additionalProperties": false,
+                    "error": {},
+                    "GUID": "90fec73d-3366-408b-b4eb-fa3c47bef870"
                 },
                 {
                     "name": "locations",
@@ -245,13 +257,17 @@
         "a8b502f4-88e9-45f8-9535-5a5dfe7f0006": "species",
         "68a2a9b3-667d-4641-915b-4a31e855e3f6": "subSpecies",
         "cc370172-d9e7-44ee-9d5e-5cb80fd2ed14": "observations",
-        "bf4ee029-3b2b-44ad-a65e-0eddc92e0ff7": "birdSeen",
+        "bf4ee029-3b2b-44ad-a65e-0eddc92e0ff7": "months",
         "90fec73d-3366-408b-b4eb-fa3c47bef870": "hours",
         "e76bce8d-4343-4a75-a808-2c59c87e05a4": "locations",
         "679f1e09-a009-48e5-9189-2d30946ef73b": "title",
         "f13f5b49-f795-4ec6-8cb8-0b0b26203cd9": "lat",
         "834ca950-0a86-4431-9a98-e465a6da4d9a": "lon",
-        "dfa82128-5d27-4968-8412-22258fa7a485": "photo"
+        "dfa82128-5d27-4968-8412-22258fa7a485": "photo",
+        "1f82012d-08f0-4291-a285-009d70b360eb": "first",
+        "4268492e-eb66-423e-b478-8c8376d8db6c": "last",
+        "77435821-c0ff-402b-95ec-5f03fcf44e73": "first",
+        "1361d889-5746-40e4-8bdb-a09d50306e6a": "last"
     },
     "definitions": {
         "type": "definitions",
@@ -276,7 +292,7 @@
     "creationTS": "2023-09-22T16:17:30.087Z",
     "GUID": "c6122cc5-b59e-4cb9-8c17-d50e5e613c17",
     "isLineageEnabled": false,
-    "lastModifTS": "2023-09-22T16:23:30.482Z",
+    "lastModifTS": "2023-09-27T12:51:31.951Z",
     "persistenceSchemaVersion": "6",
     "isCreatedByPlugin": true,
     "pluginInformation": {
@@ -285,6 +301,7 @@
     "applicationInformation": {
         "version": "6.11.1"
     },
+    "hackoladeMeta": {},
     "settings": {
         "centralPane": {
             "dbLevel": {
@@ -294,7 +311,7 @@
                         "x": 1080,
                         "y": 1080,
                         "width": 228,
-                        "height": 393,
+                        "height": 429,
                         "color": {}
                     }
                 ],
