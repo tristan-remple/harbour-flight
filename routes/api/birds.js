@@ -17,14 +17,16 @@ router.get('/', (req, res) => {
 
         // if there's an error, send a server error to the client
         res.status(500).send();
-    })
+    });
 });
 
 // get one specific bird
 router.get('/:id', (req, res) => {
 
+    console.log(req.params.id);
+
     // query the birds for a specific id
-    Bird.find({ id: req.params.id }).exec().then(birdData => {
+    Bird.findById(req.params.id).exec().then(birdData => {
 
         // send it if no errors occur
         res.send(birdData);
@@ -32,7 +34,7 @@ router.get('/:id', (req, res) => {
 
         // if there's an error, tell the client about it
         // needs work
-        res.send(err);
+        res.status(400).send();
     });
 
 });
