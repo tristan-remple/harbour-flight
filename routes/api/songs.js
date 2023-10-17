@@ -1,8 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const Song = require("../../models/song");
+
 router.get('/', (req, res) => {
-    res.send('Songs API: Full Collection');
+    Song.find({}).exec().then(songs => {
+        res.send(songs);
+    }).catch(err => {
+        console.log(err);
+    })
 });
 
 router.get('/:id', (req, res) => {
@@ -10,7 +16,13 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    res.send('Create new song');
+
+    const newSong = new Song(req.body);
+    newSong.save().then(result => {
+        res.status(201).send(result);
+    }).catch(err => {
+        res.send(err);
+    });
 });
 
 router.put('/:id', (req, res) => {
