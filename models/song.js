@@ -1,14 +1,31 @@
 const mongoose = require("mongoose");
 
-const schema = new mongoose.Schema({
-    title: String,
-    artist: String,
+const ratingSchema = new mongoose.Schema({
+    critic: {
+        type: String,
+        required: true
+    },
+    ofFive: {
+        type: Number,
+        required: true
+    }
+});
+
+const mainSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    artist: {
+        type: String,
+        required: true
+    },
     releaseYear: Number,
     genres: [String],
-    ratings: [Number]
+    ratings: [ratingSchema]
 }, {
     collection: "CoolSongs"
 });
 
 // capitalized and singular name, it's the only export
-module.exports = mongoose.model('Song', schema);
+module.exports = mongoose.model('Song', mainSchema);

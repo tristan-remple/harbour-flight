@@ -5,14 +5,34 @@ const router = express.Router();
 // bring in the bird model
 const Bird = require("../../models/bird");
 
+// handles errors that are caught
+function catchError(err, res) {
+
+    // cast error means the string provided was not a valid ObjectId according to Mongo
+    if (err.name === "CastError") {
+        res.status(400).send("Improperly formatted ID.")
+    } else {
+
+        // 500 is a catchall for our own errors, especially database connectivity errors
+        res.status(500).send("The server has encountered an error. Please come back later.");
+    }
+}
+
 // get all birds
 router.get('/', (req, res) => {
 
     // find query with no criteria, execute the query and then process the promise
-    Bird.find({}).exec().then(birds => {
+    Bird.find().exec().then(birds => {
         
         // the promise gives us the data, we send it with the default 200 status
-        res.send(birds);
+        if (birds) {
+            res.send(birds);
+        } else {
+
+            // if we're missing our birds, that's probably on us
+            res.status(504).send();
+        }
+        
     }).catch(err => {
 
         // if there's an error, send a server error to the client
@@ -26,8 +46,14 @@ router.get('/:id', (req, res) => {
     // query the birds for a specific id
     Bird.findById(req.params.id).exec().then(birdData => {
 
-        // send it if no errors occur
-        res.send(birdData);
+        if (birdData) {
+            // send it if no errors occur
+            res.send(birdData);
+        } else {
+            // query was successful but returned nothing: 404
+            res.status(404).send();
+        }
+        
     }).catch(err => {
 
         // if there's an error, tell the client about it
@@ -82,28 +108,39 @@ router.patch('/', (req, res) => {
 
     }).catch(err => {
 
-        console.log("find error");
-        // if there's an error, tell the client about it
-        res.status(404).send();
+        // function will send back either 400 or 500
+        catchError(err, res);
+
     });
 
 });
 
 // replace one bird
-router.put('/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
 
     // set the id back into the object body
     req.body.id = req.params.id;
 
     // use a find and update query
-    Bird.findOneAndUpdate({ _id: req.params.id }, req.body).exec().then(birdData => {
+    // returnDocument: after -> returns the document after updates
+    Bird.findByIdAndUpdate(req.params.id, req.body, {
+        returnDocument: "after"
+    }).exec().then(birdData => {
 
         // assuming it returns the updated object, pass that along to the user
-        res.status(201).send(birdData);
+        if (birdData) {   
+            res.status(201).send(birdData);
+        } else {
+
+            // if nothing is returned, we assume nothing was found
+            res.status(404).send();
+        }
+
     }).catch(err => {
 
-        // otherwise, send the error
-        res.send(err);
+        // function will send back either 400 or 500
+        catchError(err, res);
+
     })
 });
 
@@ -112,14 +149,22 @@ router.delete('/:id', (req, res) => {
 
     
     // use a delete query
-    Bird.deleteOne({ _id: req.params.id }).exec().then(response => {
+    Bird.findByIdAndDelete(req.params.id).exec().then(response => {
 
-        // assuming it returns anything, pass that along to the user
-        res.status(204).send(response);
+        // the response should contain the deleted object
+        // if there's nothing in the response, the object was not found
+        if (!response) {
+            res.status(404).send();
+        } else {
+            // otherwise, it was successful and we return a 204 success with no content
+            res.status(204).send();
+        }
+        
     }).catch(err => {
 
-        // otherwise, send the error
-        res.send(err);
+        // function will send back either 400 or 500
+        catchError(err, res);
+
     })
 });
 

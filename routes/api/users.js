@@ -6,7 +6,22 @@ var router = express.Router();
 // requests get here from /users
 // so since /users is a given, / refers to /users/
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+    res.send('respond with a resource');
+});
+
+// register
+router.post('/register', (req, res) => {
+    // save req.body to database if valid
+    // valid: strong password, not already registered, valid email
+    // hash password
+});
+
+// login
+router.post('/login', (req, res) => {
+    // check for existing user
+    // verify password
+    // if valid, create and assign token
+    // 401 unauthorized is the login fail response code
 });
 
 // send the router back to app.js
