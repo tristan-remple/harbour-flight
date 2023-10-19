@@ -16,6 +16,6 @@ router.use('/birds', birdsRouter);
 
 router.get('/*', (req, res) => {
     res.status(404).send('The endpoint you are trying to access does not exist.');
-})
+});
 
 module.exports = router;

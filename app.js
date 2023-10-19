@@ -11,7 +11,7 @@ var logger = require('morgan');
 
 // import mongoose
 const mongoose = require('mongoose');
-// mongoose.connect(process.env.MONGO_CONN);
+mongoose.connect(process.env.MONGO_CONN);
 
 // import routers
 var indexRouter = require('./routes/index');
@@ -34,6 +34,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // use routers. the path information is NOT passed on to the router
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
+app.get('/*', (req, res) => {
+  res.status(404).send('The endpoint you are trying to access does not exist.');
+});
 
 // custom solution for sending back a json response for malformed json request body
 // source: https://stackoverflow.com/questions/58134287/catch-error-for-bad-json-format-thrown-by-express-json-middleware
@@ -49,12 +52,13 @@ app.use((err, req, res, next) => {
 });
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
 // error handler
 app.use(function(err, req, res, next) {
+  
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

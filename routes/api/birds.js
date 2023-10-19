@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
     // find query with no criteria, execute the query and then process the promise
     Bird.find({}).exec().then(birds => {
-
+        
         // the promise gives us the data, we send it with the default 200 status
         res.send(birds);
     }).catch(err => {
@@ -23,8 +23,6 @@ router.get('/', (req, res) => {
 // get one specific bird
 router.get('/:id', (req, res) => {
 
-    console.log(req.params.id);
-
     // query the birds for a specific id
     Bird.findById(req.params.id).exec().then(birdData => {
 
@@ -33,8 +31,7 @@ router.get('/:id', (req, res) => {
     }).catch(err => {
 
         // if there's an error, tell the client about it
-        // needs work
-        res.status(400).send();
+        res.status(404).send();
     });
 
 });
@@ -54,9 +51,42 @@ router.post('/', (req, res) => {
     }).catch(err => {
 
         // if there's an error, send it to the client
-        // this needs refining
-        res.send(err);
+        res.status(404).send();
     });
+});
+
+// post a new bird
+router.patch('/', (req, res) => {
+
+    console.log("reached endpoint");
+    // query the birds for a specific id
+    Bird.findById(req.params.id).exec().then(birdData => {
+
+        // change the data properties that are listed in the request body
+        for (prop in req.body) {
+            birdData[prop] = req.body[prop];
+        }
+
+        // attempt to save it to the database, which is already open
+        birdData.save().then(result => {
+
+            // result is the object the database has, which includes id and version
+            // send it back with a 201 created code
+            res.status(201).send(result);
+        }).catch(err => {
+
+            console.log("save error");
+            // if there's an error, send it to the client
+            res.status(504).send();
+        });
+
+    }).catch(err => {
+
+        console.log("find error");
+        // if there's an error, tell the client about it
+        res.status(404).send();
+    });
+
 });
 
 // replace one bird
@@ -66,10 +96,10 @@ router.put('/:id', (req, res) => {
     req.body.id = req.params.id;
 
     // use a find and update query
-    Bird.findOneAndUpdate({ id: req.params.id }, req.body).exec().then(birdData => {
+    Bird.findOneAndUpdate({ _id: req.params.id }, req.body).exec().then(birdData => {
 
         // assuming it returns the updated object, pass that along to the user
-        res.status(204).send(birdData);
+        res.status(201).send(birdData);
     }).catch(err => {
 
         // otherwise, send the error
@@ -80,11 +110,12 @@ router.put('/:id', (req, res) => {
 // delete one bird
 router.delete('/:id', (req, res) => {
 
+    
     // use a delete query
-    Bird.delete({ id: req.params.id }, req.body).exec().then(response => {
+    Bird.deleteOne({ _id: req.params.id }).exec().then(response => {
 
         // assuming it returns anything, pass that along to the user
-        res.status(201).send(response);
+        res.status(204).send(response);
     }).catch(err => {
 
         // otherwise, send the error
@@ -92,4 +123,5 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+// export it
 module.exports = router;
