@@ -56,8 +56,9 @@ router.get('/:id', (req, res) => {
         
     }).catch(err => {
 
-        // if there's an error, tell the client about it
-        res.status(404).send();
+        // function will send back either 400 or 500
+        catchError(err, res);
+        
     });
 
 });
@@ -76,46 +77,13 @@ router.post('/', (req, res) => {
         res.status(201).send(result);
     }).catch(err => {
 
-        // if there's an error, send it to the client
-        res.status(404).send();
-    });
-});
-
-// post a new bird
-router.patch('/', (req, res) => {
-
-    console.log("reached endpoint");
-    // query the birds for a specific id
-    Bird.findById(req.params.id).exec().then(birdData => {
-
-        // change the data properties that are listed in the request body
-        for (prop in req.body) {
-            birdData[prop] = req.body[prop];
-        }
-
-        // attempt to save it to the database, which is already open
-        birdData.save().then(result => {
-
-            // result is the object the database has, which includes id and version
-            // send it back with a 201 created code
-            res.status(201).send(result);
-        }).catch(err => {
-
-            console.log("save error");
-            // if there's an error, send it to the client
-            res.status(504).send();
-        });
-
-    }).catch(err => {
-
         // function will send back either 400 or 500
         catchError(err, res);
 
     });
-
 });
 
-// replace one bird
+// update one bird
 router.patch('/:id', (req, res) => {
 
     // set the id back into the object body
