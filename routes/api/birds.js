@@ -11,6 +11,10 @@ function catchError(err, res) {
     // cast error means the string provided was not a valid ObjectId according to Mongo
     if (err.name === "CastError") {
         res.status(400).send("Improperly formatted ID.")
+
+    // this will only apply to post and patch
+    } else if (err.name === "ValidationError") {
+        res.status(422).send(err.message);
     } else {
 
         // 500 is a catchall for our own errors, especially database connectivity errors
@@ -77,7 +81,7 @@ router.post('/', (req, res) => {
         res.status(201).send(result);
     }).catch(err => {
 
-        // function will send back either 400 or 500
+        // function will send back either 400 or 500, or 422 in this case
         catchError(err, res);
 
     });
@@ -91,7 +95,9 @@ router.patch('/:id', (req, res) => {
 
     // use a find and update query
     // returnDocument: after -> returns the document after updates
+    // validation has to be switched on, and will only validate new content, not existing fields
     Bird.findByIdAndUpdate(req.params.id, req.body, {
+        runValidators: true,
         returnDocument: "after"
     }).exec().then(birdData => {
 
@@ -106,7 +112,7 @@ router.patch('/:id', (req, res) => {
 
     }).catch(err => {
 
-        // function will send back either 400 or 500
+        // function will send back either 400 or 500, or 422 in this case
         catchError(err, res);
 
     })
