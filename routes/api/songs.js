@@ -3,6 +3,8 @@ const router = express.Router();
 
 const Song = require("../../models/song");
 
+const demoMiddleware = require("../../middleware/demo");
+
 router.get('/', (req, res) => {
     Song.find({}).exec().then(songs => {
         res.send(songs);
@@ -11,7 +13,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', demoMiddleware, (req, res) => {
     Song.findById(req.params.id).exec().then(songData => {
         if (songData) {
             res.send(songData);

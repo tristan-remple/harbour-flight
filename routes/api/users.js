@@ -44,7 +44,7 @@ function catchError(err, res) {
 // requests get here from /users
 // so since /users is a given, / refers to /users/
 router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+    res.send('This is the users page. You may either register or login.');
 });
 
 // register
