@@ -28,15 +28,15 @@ function catchError(err, res) {
 
     // cast error means the string provided was not a valid ObjectId according to Mongo
     if (err.name === "CastError") {
-        res.status(400).send("Improperly formatted ID.")
+        return res.status(400).send("Improperly formatted ID.")
 
     // this will only apply to post and patch
     } else if (err.name === "ValidationError") {
-        res.status(422).send(err.message);
+        return res.status(422).send(err.message);
     } else {
 
         // 500 is a catchall for our own errors, especially database connectivity errors
-        res.status(500).send("The server has encountered an error. Please come back later.");
+        return res.status(500).send(err.name);
     }
 }
 
@@ -50,45 +50,53 @@ router.get('/', function(req, res, next) {
 // register
 router.post('/register', (req, res) => {
     
-    // valid: strong password, not already registered, valid email
+    // check that the body exists
+    if (!req.body.email) {
+        return res.status(401).send("Registration requires input.");
+    }
 
+    // valid: strong password, not already registered, valid email
     // check if the email is already in our users list
     User.find({ email: req.body.email }).exec().then(result => {
 
-        // if it's already in use, forbidden + message
-        if (result) {
-            res.status(403).send("Email is already registered.");
+        // if it's already in use, message
+        if (result.length > 0) {
+            return res.status(401).send("Email is already registered.");
+        }
+
+        // if the password checker returns true (strong password)
+        // encryption: https://www.npmjs.com/package/bcrypt
+        if (checkPassword(req.body.password)) {
+            bcrypt.hash(req.body.password, 10, function(err, hash) {
+
+                // once encryption is done, overwrite the plaintext password
+                req.body.password = hash;
+
+                // initialize the body as a User according to the schema
+                // if the email is invalid, it will fail validation here
+                const newUser = new User(req.body);
+
+                // attempt to save it to the database, which is already open
+                newUser.save().then(result => {
+
+                    // result is the object the database has, which includes id and version
+                    // send it back with a 201 created code
+                    return res.status(201).send(result);
+                }).catch(err => {
+
+                    // function will send back either 400 or 500
+                    return catchError(err, res);
+
+                });
+            });
+        } else {
+            return res.status(401).send("Weak password.");
         }
     }).catch(err => {
-        res.status(500).send("The server has encountered an error. Please come back later.");
+        return res.status(500).send("The server has encountered an error. Please come back later.");
     });
 
-    // if the password checker returns true (strong password)
-    // encryption: https://www.npmjs.com/package/bcrypt
-    if (checkPassword(req.body.password)) {
-        bcrypt.hash(req.body.password, 10, function(err, hash) {
-
-            // once encryption is done, overwrite the plaintext password
-            req.body.password = hash;
-
-            // initialize the body as a User according to the schema
-            // if the email is invalid, it will fail validation here
-            const newUser = new User(req.body);
-
-            // attempt to save it to the database, which is already open
-            newUser.save().then(result => {
-
-                // result is the object the database has, which includes id and version
-                // send it back with a 201 created code
-                res.status(201).send(result);
-            }).catch(err => {
-
-                // function will send back either 400 or 500
-                catchError(err, res);
-
-            });
-        });
-    }
+    
 
 });
 
@@ -96,12 +104,12 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
 
     // check for existing user
-    User.find({ email: req.body.email }).exec().then(findres => {
+    User.findOne({ email: req.body.email }).exec().then(findres => {
 
-        if (empty(findres)) {
+        if (!findres) {
 
             // the request was successful but found nothing
-            res.status(401).send("Invalid login credentials.");
+            return res.status(401).send("Invalid login credentials: no user.");
         }
 
         // verify password
@@ -114,18 +122,18 @@ router.post('/login', (req, res) => {
                 const token = jwt.sign({ email: findres.email }, process.env.JWT_SECRET);
 
                 // expires in 2 days
-                res.cookie('jwt', token, { maxAge: 172800 }).status(200).send("Welcome");
+                return res.setHeader('x-auth-token', token).status(200).send("Welcome");
             } else {
 
                 // password is not valid
                 // 401 unauthorized is the login fail response code
-                res.status(401).send("Invalid login credentials.");
+                return res.status(401).send("Invalid login credentials: bad password.");
             }
         });
     }).catch(err => {
 
         // function will send back either 400 or 500
-        catchError(err, res)
+        return catchError(err, res)
     });
     
 });
