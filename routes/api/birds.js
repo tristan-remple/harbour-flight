@@ -5,6 +5,8 @@ const router = express.Router();
 // bring in the bird model
 const Bird = require("../../models/bird");
 
+const verifyJWT = require("../../middleware/verify-jwt");
+
 // handles errors that are caught
 function catchError(err, res) {
 
@@ -68,7 +70,7 @@ router.get('/:id', (req, res) => {
 });
 
 // post a new bird
-router.post('/', (req, res) => {
+router.post('/', verifyJWT, (req, res) => {
 
     // create a new bird object using the bird model and the request body data
     const newBird = new Bird(req.body);
@@ -88,7 +90,7 @@ router.post('/', (req, res) => {
 });
 
 // update one bird
-router.patch('/:id', (req, res) => {
+router.patch('/:id', verifyJWT, (req, res) => {
 
     // set the id back into the object body
     req.body.id = req.params.id;
@@ -119,7 +121,7 @@ router.patch('/:id', (req, res) => {
 });
 
 // delete one bird
-router.delete('/:id', (req, res) => {
+router.delete('/:id', verifyJWT, (req, res) => {
 
     
     // use a delete query

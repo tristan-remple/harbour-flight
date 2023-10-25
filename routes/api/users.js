@@ -120,10 +120,10 @@ router.post('/login', (req, res) => {
                 // if valid, create and assign token
                 if (result) {
 
-                    // using env as recommended here: https://stackoverflow.com/questions/31309759/what-is-secret-key-for-jwt-based-authentication-and-how-to-generate-it
+                    // using environment variable for the secret
                     const token = jwt.sign({ email: findres.email }, process.env.JWT_SECRET);
 
-                    // expires in 2 days
+                    // sets the token in the header and sends a welcome message for success
                     res.setHeader('x-auth-token', token).status(200).send("Welcome");
                 } else {
 
