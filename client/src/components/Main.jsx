@@ -16,7 +16,7 @@ const Main = () => {
 
     // use axios to call the bird data and save it to state
     axios.get("http://localhost:5000/api/birds").then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       setBirds(response.data);
     }).catch(err => {
       console.log(err);
@@ -25,7 +25,8 @@ const Main = () => {
 
 
     return ( 
-      <div>
+      <>
+
         <section className="jumbotron text-center">
           <div className="container">
             <div className="input-group">
@@ -43,19 +44,18 @@ const Main = () => {
           <div className="container">
             <div className="row">
               {
+                // instead of assigning the map to a variable, we can output it directly
                 birds.map(bird => {
                   return (
-                    <Card bird={bird} />
-                  ) // end map return
+                    <Card bird={bird} key={bird._id} />
+                  )
                 })
               }
-
-              
-
             </div>
           </div>
         </div>
-      </div>
+
+      </>
     );
 }
  
