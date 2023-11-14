@@ -3,29 +3,36 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // import required modules
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cors = require('cors');
 
 // import mongoose
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_CONN);
 
 // import routers
-var indexRouter = require('./routes/index');
-var apiRouter = require('./routes/api');
+const indexRouter = require('./routes/index');
+const apiRouter = require('./routes/api');
 
-var app = express();
+const app = express();
 
 // view engine setup
 // set the path of the views, set the templating engine to jade
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// only allow requests from environment origin
+const corsOptions = {
+  origin: process.env.APP_ORIGIN
+}
+
 // middleware
 app.use(logger('dev'));
+app.use(cors(corsOptions))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
