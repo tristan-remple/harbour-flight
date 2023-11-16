@@ -111,7 +111,7 @@ router.post('/login', (req, res) => {
         if (!findres) {
 
             // the request was successful but found nothing
-            res.status(401).send("Invalid login credentials: no user.");
+            res.status(401).send("Invalid login credentials.");
         } else {
 
             // verify password
@@ -124,12 +124,13 @@ router.post('/login', (req, res) => {
                     const token = jwt.sign({ email: findres.email }, process.env.JWT_SECRET);
 
                     // sets the token in the header and sends a welcome message for success
+                    res.header('Access-Control-Expose-Headers', 'x-auth-token');
                     res.setHeader('x-auth-token', token).status(200).send("Welcome");
                 } else {
 
                     // password is not valid
                     // 401 unauthorized is the login fail response code
-                    res.status(401).send("Invalid login credentials: bad password.");
+                    res.status(401).send("Invalid login credentials.");
                 }
             });
         }
