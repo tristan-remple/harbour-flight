@@ -27,12 +27,13 @@ app.set('view engine', 'jade');
 
 // only allow requests from environment origin
 const corsOptions = {
-  origin: process.env.APP_ORIGIN
+  origin: process.env.APP_ORIGIN,
+  credentials: true
 }
 
 // middleware
 app.use(logger('dev'));
-app.use(cors(corsOptions))
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

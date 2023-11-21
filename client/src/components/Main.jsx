@@ -3,8 +3,12 @@ import '../css/main.css'
 import 'font-awesome/css/font-awesome.min.css';
 import axios from 'axios';
 import Card from './Card.jsx';
+import { CookiesProvider, useCookies } from 'react-cookie';
 
 const Main = () => {
+
+  const [ cookies, setCookie ] = useCookies(["jwt"]);
+  console.log(cookies);
 
   // create the birds state
   const [ birds, setBirds ] = useState([]);

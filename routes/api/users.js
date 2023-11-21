@@ -1,6 +1,7 @@
 // bring in express and initialize a router
 var express = require('express');
 var router = express.Router();
+const cookie = require('cookie');
 
 // bring in the model
 const User = require("../../models/user");
@@ -124,8 +125,24 @@ router.post('/login', (req, res) => {
                     const token = jwt.sign({ email: findres.email }, process.env.JWT_SECRET);
 
                     // sets the token in the header and sends a welcome message for success
-                    res.header('Access-Control-Expose-Headers', 'x-auth-token');
-                    res.setHeader('x-auth-token', token).status(200).send("Welcome");
+                    // res.header('Access-Control-Expose-Headers', 'x-auth-token');
+                    // res.setHeader('x-auth-token', token);
+
+                    const cookie = require('cookie');
+
+                    // Set a cookie with the secure and HttpOnly flags
+                    const cookieOptions = {
+                        secure: true,
+                        httpOnly: true
+                    };
+
+                    // const cookieString = cookie.serialize('jwt', token, cookieOptions);
+
+                    // Set the cookie in the response header
+                    // res.setHeader('Set-Cookie', cookieString);
+                    res.cookie("jwt", token, cookieOptions);
+
+                    res.status(200).send("Welcome");
                 } else {
 
                     // password is not valid
