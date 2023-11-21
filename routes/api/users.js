@@ -128,8 +128,6 @@ router.post('/login', (req, res) => {
                     // res.header('Access-Control-Expose-Headers', 'x-auth-token');
                     // res.setHeader('x-auth-token', token);
 
-                    const cookie = require('cookie');
-
                     // Set a cookie with the secure and HttpOnly flags
                     const cookieOptions = {
                         secure: true,

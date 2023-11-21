@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import '../css/main.css'
 import 'font-awesome/css/font-awesome.min.css';
 import axios from 'axios';
-import Card from './Card.jsx';
 import { CookiesProvider, useCookies } from 'react-cookie';
 
-const Main = () => {
+import Card from './Card';
+import Alert from './Alert';
+
+const Main = (props) => {
 
   const [ cookies, setCookie ] = useCookies(["jwt"]);
   console.log(cookies);
@@ -45,6 +47,7 @@ const Main = () => {
         </section>
 
         <div className="album py-5 bg-light">
+        <Alert message={props.status.message} type={props.status.type} />
           <div className="container">
             <div className="row">
               {
