@@ -9,11 +9,16 @@ import Register from './components/Register';
 
 const App = () => {
 
+  // status is our "flash message"
+  // (it's probably stored for longer than a real flash message)
+  // it's stored in state so that a message generated on register can display on main
   const [ status, setStatus ] = useState({
-    message: "",
-    type: ""
+    message: null,
+    type: null
   });
 
+  // the status is passed into all three routes
+  // but the main page does not need to be able to update the status
   return (
     <React.Fragment>
       <NavBar />

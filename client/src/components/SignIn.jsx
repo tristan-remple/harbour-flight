@@ -9,9 +9,11 @@ import Alert from './Alert';
 
 const SignIn = props => {
 
+    // bring in react hook form functionality
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [ cookies, setCookie ] = useCookies(["jwt"]);
 
+    // set axios to identify where it's sending requests from and accept all status codes
     const axiosOptions = {
         withCredentials: true,
         validateStatus: (status) => {
@@ -19,8 +21,13 @@ const SignIn = props => {
         }
     }
 
+    // the function that react hook form calls
     const sendCredentials = creds => {
+
+        // axios post request
         axios.post("http://localhost:5000/api/users/login", creds, axiosOptions).then(response => {
+
+            // set the status in state to let the user know how their submission went
             let newStatus;
             if (response.status >= 200 && response.status < 300) {
                 newStatus = {
@@ -35,13 +42,25 @@ const SignIn = props => {
             }
             props.onSubmit(newStatus);
         }).catch(err => {
+
+            // if the request fails completely
             console.log(err);
+
+            // hopefully this message will never be displayed
+            newStatus = {
+                message: "Something went wrong.",
+                type: "warning"
+            }
+            props.onSubmit(newStatus);
         });
     }
 
+    // if the user has just succeeded, redirect them to the main page
     if (props.status.type === "success") {
         return <Navigate to="/" replace={true} />
     }
+
+    // otherwise, display the form
     return ( 
         <form className="form-signin" onSubmit={handleSubmit(sendCredentials)}>
             <Alert message={props.status.message} type={props.status.type} />
