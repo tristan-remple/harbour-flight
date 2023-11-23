@@ -12,7 +12,9 @@ const cors = require('cors');
 
 // import mongoose
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_CONN);
+mongoose.connect(process.env.MONGO_CONN)
+  .then(() => { console.log("Connected") })
+  .catch(err => console.log(err));
 
 // import routers
 const indexRouter = require('./routes/index');
