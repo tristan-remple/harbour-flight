@@ -25,7 +25,7 @@ const SignIn = props => {
     const sendCredentials = creds => {
 
         // axios post request
-        axios.post("http://localhost:5000/api/users/login", creds, axiosOptions).then(response => {
+        axios.post(`${import.meta.env.VITE_API_URL}/users/login`, creds, axiosOptions).then(response => {
 
             // set the status in state to let the user know how their submission went
             let newStatus;

@@ -26,7 +26,7 @@ const SignIn = props => {
         }
 
         // axio post request containing the user creds and the options listed above
-        axios.post("http://localhost:5000/api/users/register", creds, axiosOptions).then(response => {
+        axios.post(`${import.meta.env.VITE_API_URL}/users/register`, creds, axiosOptions).then(response => {
 
             // new status will be set to the alert component
             let newStatus;

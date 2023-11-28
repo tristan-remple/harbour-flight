@@ -46,9 +46,9 @@ app.use(express.static(path.join(__dirname, 'client/dist')));
 // use routers. the path information is NOT passed on to the router
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
-app.get('/*', (req, res) => {
-  res.status(404).send('The endpoint you are trying to access does not exist.');
-});
+// app.get('/*', (req, res) => {
+//   res.status(404).send('The endpoint you are trying to access does not exist.');
+// });
 
 // custom solution for sending back a json response for malformed json request body
 // source: https://stackoverflow.com/questions/58134287/catch-error-for-bad-json-format-thrown-by-express-json-middleware
