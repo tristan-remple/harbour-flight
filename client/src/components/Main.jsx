@@ -21,7 +21,7 @@ const Main = (props) => {
   useEffect(() => {
 
     // use axios to call the bird data and save it to state
-    axios.get("http://localhost:5000/api/birds").then(response => {
+    axios.get(`${import.meta.env.VITE_API_URL}/birds`).then(response => {
       // console.log(response.data);
       setBirds(response.data);
     }).catch(err => {

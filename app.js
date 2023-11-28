@@ -27,15 +27,17 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// only allow requests from environment origin
-const corsOptions = {
-  origin: process.env.APP_ORIGIN,
-  credentials: true
+if (process.env.NODE_ENV !== 'production') {
+  // only allow requests from environment origin
+  const corsOptions = {
+    origin: process.env.APP_ORIGIN,
+    credentials: true
+  }
+  app.use(cors(corsOptions));
 }
 
 // middleware
 app.use(logger('dev'));
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
