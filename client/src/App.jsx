@@ -6,6 +6,8 @@ import Main from './components/Main';
 import SignIn from './components/SignIn';
 import Footer from './components/Footer';
 import Register from './components/Register';
+import ProtectedRoutes from './components/ProtectedRoutes';
+import Create from './components/Create';
 
 const App = () => {
 
@@ -27,6 +29,9 @@ const App = () => {
           <Route path="/" element={<Main status={status} />} />
           <Route path="/signin" element={<SignIn status={status} onSubmit={setStatus} />} />
           <Route path="/register" element={<Register status={status} onSubmit={setStatus} />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/create" element={<Create />} />
+          </Route>
         </Routes>
       </div>
       <Footer />

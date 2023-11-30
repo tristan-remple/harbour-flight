@@ -4,11 +4,21 @@ import axios from 'axios';
 class authService {
 
     isSignedIn() {
-
+        return sessionStorage.getItem("signedIn") === "true";
     }
 
-    signOut() {
-
+    signOut(callback) {
+        axios.post(`${import.meta.env.VITE_API_URL}/users/login`, '', axiosOptions).then(response => {
+            switch (response.status) {
+                case 204:
+                    sessionStorage.removeItem('signedIn');
+                    callback(true);
+                    break;
+                default:
+                    callback(false);
+                    break;
+            }
+        })
     }
 
     signIn(creds, callback) {
@@ -23,6 +33,7 @@ class authService {
         axios.post(`${import.meta.env.VITE_API_URL}/users/login`, creds, axiosOptions).then(response => {
             switch (response.status) {
                 case 200: {
+                    sessionStorage.setItem("signedIn", "true");
                     callback(true);
                     break;
                 }

@@ -158,5 +158,13 @@ router.post('/login', (req, res) => {
     
 });
 
+// post so that it can't be typed into the browser by accident
+router.post('/logout', (req, res) => {
+
+    // clear the jwt cookie and return success
+    res.clearCookie('jwt');
+    res.status(204).send();
+});
+
 // send the router back to app.js
 module.exports = router;
