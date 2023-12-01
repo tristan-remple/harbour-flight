@@ -96,12 +96,12 @@ const birdSchema = mongoose.Schema({
     "locations": [
         {
             type: locationSchema,
-            required: true
+            // required: true
         }
     ],
     "photo": {
         type: String,
-        required: true
+        // required: true
     }
 }, {
     collection: "birds"

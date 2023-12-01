@@ -8,7 +8,16 @@ class authService {
     }
 
     signOut(callback) {
-        axios.post(`${import.meta.env.VITE_API_URL}/users/login`, '', axiosOptions).then(response => {
+
+        // set axios to identify where it's sending requests from and accept all status codes
+        const axiosOptions = {
+            withCredentials: true,
+            validateStatus: (status) => {
+                return true;
+            }
+        }
+
+        axios.post(`${import.meta.env.VITE_API_URL}/users/logout`, '', axiosOptions).then(response => {
             switch (response.status) {
                 case 204:
                     sessionStorage.removeItem('signedIn');
@@ -22,7 +31,7 @@ class authService {
     }
 
     signIn(creds, callback) {
-        // set axios to identify where it's sending requests from and accept all status codes
+
         const axiosOptions = {
             withCredentials: true,
             validateStatus: (status) => {
@@ -53,8 +62,35 @@ class authService {
         });
     }
 
-    register() {
+    register(creds, callback) {
+        const axiosOptions = {
+            withCredentials: true,
+            validateStatus: (status) => {
+                return true;
+            }
+        }
 
+        axios.post(`${import.meta.env.VITE_API_URL}/users/register`, creds, axiosOptions).then(response => {
+            switch (response.status) {
+                case 200: {
+                    sessionStorage.setItem("signedIn", "true");
+                    callback(true);
+                    break;
+                }
+                case 400: {
+                    callback(false);
+                    break;
+                }
+                case 401: {
+                    callback(false);
+                    break;
+                }
+                case 500: {
+                    callback(false);
+                    break;
+                }
+            }
+        });
     }
 
 }
