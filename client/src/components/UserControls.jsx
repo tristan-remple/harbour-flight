@@ -9,44 +9,40 @@ const UserControls = ({ setStatus, isSignedIn, toggle }) => {
 
     // sign out doesn't need to be a separate page, so it's handled here
     const signOut = () => {
+        console.log("Signing out");
 
-        // only sign the user out if they need to be signed out
-        // but the button should only display in this case anyway
-        if (isSignedIn) {
-
-            // auth service signs out of the api and session
-            authService.signOut((result) => {
-                
-                let newStatus;
-                if (result[0]) {
-                    // this function handles signing out of state
-                    newStatus = {
-                        message: "Good bye for now.",
-                        type: "success"
-                    }
-                    setStatus(newStatus);
-                    toggle();
-
-                    // returns to the home page
-                    navigate("/");
-                } else {
-                    // if auth service fails for some reason, tell me why
-                    newStatus = {
-                        message: result[1],
-                        type: "warning"
-                    }
-                    setStatus(newStatus);
+        // auth service signs out of the api and session
+        authService.signOut((result) => {
+            console.log(result);
+            let newStatus;
+            if (result[0]) {
+                // this function handles signing out of state
+                newStatus = {
+                    message: "Good bye for now.",
+                    type: "success"
                 }
-            });
-            
-        }
+                setStatus(newStatus);
+                toggle();
+
+                // returns to the home page
+                navigate("/");
+            } else {
+                // if auth service fails for some reason, tell me why
+                newStatus = {
+                    message: result[1],
+                    type: "warning"
+                }
+                setStatus(newStatus);
+            }
+        });
+
     }
 
     // if the user is signed in, allow them to sign out
     if (isSignedIn) {
         return (
             <li className="nav-item active">
-                <div className="nav-link" onClick={signOut}>Sign Out</div>
+                <div className="nav-link" onClick={signOut} >Sign Out</div>
             </li>
         )
     } else {
