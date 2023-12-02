@@ -1,20 +1,34 @@
 import { Link } from 'react-router-dom';
 import authService from '../services/authService';
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
 
-const UserControls = () => {
 
-    // this isnt affected when the user signed in
-    // should we be using state instead of session storage, or in addition to?
-    const [ isSignedIn, setIsSignedIn ] = useState(sessionStorage.getItem("signedIn"));
+const UserControls = ({ setStatus, isSignedIn, toggle }) => {
 
     const navigate = useNavigate();
 
     const signOut = () => {
-        authService.signOut();
-        setIsSignedIn(false);
-        navigate("/");
+        if (isSignedIn) {
+            authService.signOut((result) => {
+                let newStatus;
+                if (result[0]) {
+                    newStatus = {
+                        message: "Good bye for now.",
+                        type: "success"
+                    }
+                    setStatus(newStatus);
+                    toggle();
+                    navigate("/");
+                } else {
+                    newStatus = {
+                        message: result[1],
+                        type: "warning"
+                    }
+                    setStatus(newStatus);
+                }
+            });
+            
+        }
     }
 
     if (isSignedIn) {

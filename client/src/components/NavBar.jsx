@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserControls from './UserControls';
 
-const NavBar = () => {
+const NavBar = ({ setStatus, isSignedIn, toggle }) => {
     return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
@@ -22,7 +22,7 @@ const NavBar = () => {
             <li className="nav-item active">
               <Link className="nav-link" to="/create">Create</Link>
             </li>
-            <UserControls />
+            <UserControls setStatus={setStatus} isSignedIn={isSignedIn} toggle={toggle} />
           </ul>
         </div>
       </div>

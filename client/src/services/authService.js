@@ -21,10 +21,10 @@ class authService {
             switch (response.status) {
                 case 204:
                     sessionStorage.removeItem('signedIn');
-                    callback(true);
+                    callback([true, null]);
                     break;
                 default:
-                    callback(false);
+                    callback([false, response.data]);
                     break;
             }
         })
@@ -43,19 +43,11 @@ class authService {
             switch (response.status) {
                 case 200: {
                     sessionStorage.setItem("signedIn", "true");
-                    callback(true);
+                    callback([true, null]);
                     break;
                 }
-                case 400: {
-                    callback(false);
-                    break;
-                }
-                case 401: {
-                    callback(false);
-                    break;
-                }
-                case 500: {
-                    callback(false);
+                default: {
+                    callback([false, response.data]);
                     break;
                 }
             }
@@ -72,21 +64,13 @@ class authService {
 
         axios.post(`${import.meta.env.VITE_API_URL}/users/register`, creds, axiosOptions).then(response => {
             switch (response.status) {
-                case 200: {
+                case 201: {
                     sessionStorage.setItem("signedIn", "true");
-                    callback(true);
+                    callback([true, null]);
                     break;
                 }
-                case 400: {
-                    callback(false);
-                    break;
-                }
-                case 401: {
-                    callback(false);
-                    break;
-                }
-                case 500: {
-                    callback(false);
+                default: {
+                    callback([false, response.data]);
                     break;
                 }
             }

@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import '../css/main.css'
 import 'font-awesome/css/font-awesome.min.css';
 import axios from 'axios';
-import { CookiesProvider, useCookies } from 'react-cookie';
+// import { CookiesProvider, useCookies } from 'react-cookie';
 
 import Card from './Card';
 import Alert from './Alert';
 
 const Main = (props) => {
 
-  const [ cookies, setCookie ] = useCookies(["jwt"]);
-  console.log(cookies);
+  // const [ cookies, setCookie ] = useCookies(["jwt"]);
+  // console.log(cookies);
 
   // create the birds state
   const [ birds, setBirds ] = useState([]);

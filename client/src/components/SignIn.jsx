@@ -8,63 +8,47 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 import Alert from './Alert';
 
-const SignIn = props => {
+const SignIn = ({ status, setStatus, toggle }) => {
 
     const navigate = useNavigate();
 
     // bring in react hook form functionality
     const { register, handleSubmit, formState: { errors } } = useForm();
-    // const [ cookies, setCookie ] = useCookies(["jwt"]);
 
-    // set axios to identify where it's sending requests from and accept all status codes
-    // const axiosOptions = {
-    //     withCredentials: true,
-    //     validateStatus: (status) => {
-    //         return true;
-    //     }
-    // }
-
-    // the function that react hook form calls
-    // const sendCredentials = creds => {
-
-    //     // axios post request
-    //     axios.post(`${import.meta.env.VITE_API_URL}/users/login`, creds, axiosOptions).then(response => {
-
-    //         // set the status in state to let the user know how their submission went
-    //         let newStatus;
-    //         if (response.status >= 200 && response.status < 300) {
-    //             newStatus = {
-    //                 message: "Thank you for signing in.",
-    //                 type: "success"
-    //             }
-    //         } else {
-    //             newStatus = {
-    //                 message: response.data,
-    //                 type: "warning"
-    //             }
-    //         }
-    //         props.onSubmit(newStatus);
-    //     }).catch(err => {
-
-    //         // if the request fails completely
-    //         console.log(err);
-
-    //         // hopefully this message will never be displayed
-    //         newStatus = {
-    //             message: "Something went wrong.",
-    //             type: "warning"
-    //         }
-    //         props.onSubmit(newStatus);
-    //     });
-    // }
-
+    // this function is called when a user hits submit
     function sendCredentials(creds) {
-        authService.signIn(creds, (status) => {
-            if (status) {
-                console.log("Success");
+
+        // send their credentials to the auth service
+        // receive back a result: [success boolean, message string]
+        authService.signIn(creds, (result) => {
+
+            // status refers to the messages stored in state
+            let newStatus;
+
+            // if [success] is true
+            if (result[0]) {
+                console.log(result);
+
+                // set the new status
+                // message string is null in this case, it's set here instead of by the api
+                newStatus = {
+                    message: "Thank you for signing in.",
+                    type: "success"
+                }
+                setStatus(newStatus);
+                toggle();
+
+                // navigate to home
                 navigate("/");
             } else {
-                console.log("No success");
+                console.log(result);
+
+                // if there's an error, we display the api error message in a warning box
+                newStatus = {
+                    message: result[1],
+                    type: "warning"
+                }
+                setStatus(newStatus);
             }
         });
     }
@@ -77,7 +61,7 @@ const SignIn = props => {
     // otherwise, display the form
     return ( 
         <form className="form-signin" onSubmit={handleSubmit(sendCredentials)}>
-            <Alert message={props.status.message} type={props.status.type} />
+            <Alert message={status.message} type={status.type} />
             <h1 className="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
             <label htmlFor="inputEmail" className="sr-only">Email address</label>
             <input 
