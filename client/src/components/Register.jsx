@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/signin.css';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import Alert from './Alert';
 import authService from '../services/authService';
@@ -90,6 +91,7 @@ const Register = ({ status, setStatus, toggle }) => {
                 {...register("password")}
             />
             <button className="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+            <Link className="btn btn-lg btn-secondary btn-block" to="/signin">Already a User?</Link>
         </form>
      );
 }

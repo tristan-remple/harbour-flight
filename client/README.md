@@ -25,5 +25,5 @@ Currently, two official plugins are available:
 - ✅ apply protected routing to create form
 
 ### To Do
-- sort out state of nav bar
+- ✅ sort out state of nav bar
 - optional: add fields to form

@@ -1,3 +1,6 @@
+
+// form field for the create form
+// could be used for edit as well
 const Input = ({ name, title, type, register }) => {
     return (
         <div className="row mb-3 mx-3">

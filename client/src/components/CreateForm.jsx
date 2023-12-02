@@ -1,10 +1,15 @@
-import Input from './Input';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
+// the input fields felt repetitive so they've been componentized
+import Input from './Input';
+
 const CreateForm = (props) => {
 
+    // bring in form stuff
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    // set api url and axios options
     const url = "http://localhost:5000/api/birds";
     const axiosOptions = {
         withCredentials: true,
@@ -13,6 +18,7 @@ const CreateForm = (props) => {
         }
     }
 
+    // function called on successful submit
     const processSubmit = (data) => {
         console.log(data);
         axios.post(url, data, axiosOptions).then(response => {
@@ -20,6 +26,7 @@ const CreateForm = (props) => {
         });
     };
 
+    // jsx
     return (
         <div className="card m-3">
             <h2 className="card-header">Record a Bird</h2>

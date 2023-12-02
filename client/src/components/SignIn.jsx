@@ -1,10 +1,9 @@
 import React from 'react';
 import '../css/signin.css';
 import { useForm } from 'react-hook-form';
-// import axios from 'axios';
 import authService from '../services/authService.js';
-// import { CookiesProvider, useCookies } from 'react-cookie';
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import Alert from './Alert';
 
@@ -53,12 +52,7 @@ const SignIn = ({ status, setStatus, toggle }) => {
         });
     }
 
-    // if the user has just succeeded, redirect them to the main page
-    // if (props.status.type === "success") {
-    //     return <Navigate to="/" replace={true} />
-    // }
-
-    // otherwise, display the form
+    // display the form
     return ( 
         <form className="form-signin" onSubmit={handleSubmit(sendCredentials)}>
             <Alert message={status.message} type={status.type} />
@@ -80,6 +74,7 @@ const SignIn = ({ status, setStatus, toggle }) => {
                 {...register("password")}
             />
             <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <Link className="btn btn-lg btn-secondary btn-block" to="/register">Not a User?</Link>
         </form>
     );
 }

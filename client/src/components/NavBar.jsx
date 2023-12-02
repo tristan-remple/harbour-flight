@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserControls from './UserControls';
 
+// the props are used to determine whether the user options should be sign in & register or sign out
 const NavBar = ({ setStatus, isSignedIn, toggle }) => {
     return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
