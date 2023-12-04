@@ -131,7 +131,8 @@ router.post('/login', (req, res) => {
                     // Set a cookie with the secure and HttpOnly flags
                     const cookieOptions = {
                         secure: true,
-                        httpOnly: true
+                        httpOnly: true,
+                        path: '/'
                     };
 
                     // const cookieString = cookie.serialize('jwt', token, cookieOptions);
