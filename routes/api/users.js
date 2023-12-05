@@ -80,6 +80,20 @@ router.post('/register', (req, res) => {
                     // attempt to save it to the database, which is already open
                     newUser.save().then(result => {
 
+                        // using environment variable for the secret
+                        const token = jwt.sign({ email: findres.email }, process.env.JWT_SECRET);
+
+                        // Set a cookie with the secure and HttpOnly flags
+                        const cookieOptions = {
+                            secure: true,
+                            httpOnly: true,
+                            path: '/'
+                        };
+
+
+                        // Set the cookie in the response header
+                        res.cookie("jwt", token, cookieOptions);
+
                         // result is the object the database has, which includes id and version
                         // send it back with a 201 created code
                         res.status(201).send(result);
@@ -124,10 +138,6 @@ router.post('/login', (req, res) => {
                     // using environment variable for the secret
                     const token = jwt.sign({ email: findres.email }, process.env.JWT_SECRET);
 
-                    // sets the token in the header and sends a welcome message for success
-                    // res.header('Access-Control-Expose-Headers', 'x-auth-token');
-                    // res.setHeader('x-auth-token', token);
-
                     // Set a cookie with the secure and HttpOnly flags
                     const cookieOptions = {
                         secure: true,
@@ -135,10 +145,7 @@ router.post('/login', (req, res) => {
                         path: '/'
                     };
 
-                    // const cookieString = cookie.serialize('jwt', token, cookieOptions);
-
                     // Set the cookie in the response header
-                    // res.setHeader('Set-Cookie', cookieString);
                     res.cookie("jwt", token, cookieOptions);
 
                     res.status(200).send("Welcome");

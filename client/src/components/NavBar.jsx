@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import UserControls from './UserControls';
 
 // the props are used to determine whether the user options should be sign in & register or sign out
-const NavBar = ({ setStatus, isSignedIn, toggle }) => {
+const NavBar = ({ setStatus }) => {
     return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
@@ -23,7 +23,9 @@ const NavBar = ({ setStatus, isSignedIn, toggle }) => {
             <li className="nav-item active">
               <Link className="nav-link" to="/create">Create</Link>
             </li>
-            <UserControls setStatus={setStatus} isSignedIn={isSignedIn} toggle={toggle} />
+          </ul>
+          <ul className="navbar-nav ml-auto">
+            <UserControls setStatus={setStatus} />
           </ul>
         </div>
       </div>

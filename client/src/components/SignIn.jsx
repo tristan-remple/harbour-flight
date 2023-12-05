@@ -31,11 +31,10 @@ const SignIn = ({ status, setStatus, toggle }) => {
                 // set the new status
                 // message string is null in this case, it's set here instead of by the api
                 newStatus = {
-                    message: "Thank you for signing in.",
+                    message: `Welcome ${creds.email}`,
                     type: "success"
                 }
                 setStatus(newStatus);
-                toggle();
 
                 // navigate to home
                 navigate("/");

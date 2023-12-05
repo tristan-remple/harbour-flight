@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import authService from '../services/authService';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 // this is a fragment of the navbar that displays user controls
-const UserControls = ({ setStatus, isSignedIn, toggle }) => {
+const UserControls = ({ setStatus, }) => {
 
+    useLocation();
     const navigate = useNavigate();
 
     // sign out doesn't need to be a separate page, so it's handled here
@@ -22,7 +23,6 @@ const UserControls = ({ setStatus, isSignedIn, toggle }) => {
                     type: "success"
                 }
                 setStatus(newStatus);
-                toggle();
 
                 // returns to the home page
                 navigate("/");
@@ -39,10 +39,13 @@ const UserControls = ({ setStatus, isSignedIn, toggle }) => {
     }
 
     // if the user is signed in, allow them to sign out
-    if (isSignedIn) {
+    if (authService.isSignedIn()) {
         return (
-            <li className="nav-item active">
-                <div className="nav-link" onClick={signOut} >Sign Out</div>
+            <li className="nav-item dropdown">
+                <div className="nav-link dropdown-toggle" id="dropdown06" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{ authService.currentUser() }</div>
+                <div className="dropdown-menu bg-dark" aria-labelledby="dropdown06">
+                    <div className="nav-link" onClick={signOut} >Sign Out</div>
+                </div>
             </li>
         )
     } else {

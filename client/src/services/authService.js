@@ -6,7 +6,11 @@ class authService {
     // validate whether or not a user is signed in
     isSignedIn() {
         // check in session
-        return sessionStorage.getItem("signedIn") === "true";
+        return sessionStorage.getItem("signedIn")?.length > 0;
+    }
+
+    currentUser() {
+        return sessionStorage.getItem("signedIn");
     }
 
     // sign a user out (of the api and session)
@@ -57,7 +61,7 @@ class authService {
             switch (response.status) {
                 case 200: {
                     // if it's successful, set the session variable
-                    sessionStorage.setItem("signedIn", "true");
+                    sessionStorage.setItem("signedIn", creds.email);
 
                     // inform the component of the success
                     callback([true, null]);
@@ -91,7 +95,7 @@ class authService {
 
                     // 201: successfully created
                     // set the session storage and inform the component
-                    sessionStorage.setItem("signedIn", "true");
+                    sessionStorage.setItem("signedIn", creds.email);
                     callback([true, null]);
                     break;
                 }

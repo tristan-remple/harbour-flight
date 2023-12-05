@@ -19,28 +19,17 @@ const App = () => {
     type: null
   });
 
-  // if you store signed in in session only, then making changes to your sign in status does not affect the navbar items
-  // if you store signed in in state only, then refreshing the page results in being signed out of the ui, but not the api
-  // so i guess you need both
-  const [ isSignedIn, setIsSignedIn ] = useState(sessionStorage.getItem("signedIn"));
-
-  // validation happens before this function is called
-  const toggleSignIn = () => {
-    const newSignIn = isSignedIn ? false : true;
-    setIsSignedIn(newSignIn);
-  }
-
   // the status is passed into all three routes
   // but the main page does not need to be able to update the status
   return (
     <React.Fragment>
-      <NavBar isSignedIn={isSignedIn} setStatus={setStatus} toggle={toggleSignIn} />
+      <NavBar setStatus={setStatus} />
       <div id="main-content">
         <Routes>
           <Route path="/" element={<Main status={status} />} />
-          <Route path="/signin" element={<SignIn status={status} setStatus={setStatus} toggle={toggleSignIn} />} />
-          <Route path="/register" element={<Register status={status} setStatus={setStatus} toggle={toggleSignIn} />} />
-          <Route element={<ProtectedRoutes isSignedIn={isSignedIn} />}>
+          <Route path="/signin" element={<SignIn status={status} setStatus={setStatus} />} />
+          <Route path="/register" element={<Register status={status} setStatus={setStatus} />} />
+          <Route element={<ProtectedRoutes />}>
             <Route path="/create" element={<CreateForm />} />
           </Route>
         </Routes>

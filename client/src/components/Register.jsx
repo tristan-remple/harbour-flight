@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Alert from './Alert';
 import authService from '../services/authService';
 
-const Register = ({ status, setStatus, toggle }) => {
+const Register = ({ status, setStatus }) => {
 
     // set up navigation
     const navigate = useNavigate();
@@ -36,7 +36,6 @@ const Register = ({ status, setStatus, toggle }) => {
                     type: "success"
                 }
                 setStatus(newStatus);
-                toggle();
 
                 // navigate to home
                 navigate("/");
