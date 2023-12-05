@@ -20,10 +20,23 @@ const CreateForm = (props) => {
 
     // function called on successful submit
     const processSubmit = (data) => {
-        console.log(data);
-        axios.post(url, data, axiosOptions).then(response => {
+
+        // destructure the data so that it fits the schema
+        const {commonName, observations, order, family, genus, species} = data;
+        const submitData =  { commonName,
+            observations,
+            scientificName: {
+                order,
+                family,
+                genus,
+                species
+            }
+        }
+        console.log(submitData);
+        axios.post(url, submitData, axiosOptions).then(response => {
             console.log(response);
         });
+
     };
 
     // jsx
