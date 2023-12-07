@@ -26,4 +26,31 @@ Currently, two official plugins are available:
 
 ### To Do
 - ✅ sort out state of nav bar
-- optional: add fields to form
+
+## Assignment 4
+
+### Req. 1
+- ✅ validate create
+- ✅ validate signin
+- ✅ validate register
+- increase validation
+
+### Req. 2
+- ✅ navbar displays user status
+
+### Req. 3
+- ✅ edit form
+- ✅ edit functionality
+- ✅ edit validation
+
+### Req. 4
+- ✅ delete verification
+- ✅ delete functionality
+- rerender on delete
+
+### Req. 5
+- ✅ search functionality
+
+### Other
+- ✅ api service
+- more form fields

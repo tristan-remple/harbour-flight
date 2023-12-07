@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 import Alert from './Alert';
+import Input from './Input';
 import authService from '../services/authService';
 
 const Register = ({ status, setStatus }) => {
@@ -53,45 +54,43 @@ const Register = ({ status, setStatus }) => {
     }
 
     // return jsx form
-    return ( 
-        <form className="form-signin" onSubmit={handleSubmit(sendCredentials)}>
+    return (
+        <div className="card m-3">
+            <h2 className="card-header">Register</h2>
+        <form className="card-body" onSubmit={handleSubmit(sendCredentials)}>
             <Alert message={status.message} type={status.type} />
-            <h1 className="h3 mb-3 font-weight-normal text-center">Register</h1>
-            <label htmlFor="inputFirst" className="sr-only">First Name</label>
-            <input 
+            <Input 
+                name="firstName"
+                title="First Name"
                 type="text"
-                id="inputFirst"
-                className="form-control"
-                placeholder="First Name"
-                {...register("firstName")}
+                register={register}
+                error={errors.firstName && errors.firstName.message}
             />
-            <label htmlFor="inputLast" className="sr-only">Last Name</label>
-            <input 
+            <Input 
+                name="lastName"
+                title="Last Name"
                 type="text"
-                id="inputLast"
-                className="form-control"
-                placeholder="Last Name"
-                {...register("lastName")}
+                register={register}
+                error={errors.lastName && errors.lastName.message}
             />
-            <label htmlFor="inputEmail" className="sr-only">Email Address</label>
-            <input 
+            <Input 
+                name="email"
+                title="Email"
                 type="email"
-                id="inputEmail"
-                className="form-control"
-                placeholder="Email address"
-                {...register("email")}
+                register={register}
+                error={errors.email && errors.email.message}
             />
-            <label htmlFor="inputPassword" className="sr-only">Password</label>
-            <input
+            <Input 
+                name="password"
+                title="Password"
                 type="password"
-                id="inputPassword"
-                className="form-control"
-                placeholder="Password"
-                {...register("password")}
+                register={register}
+                error={errors.password && errors.password.message}
             />
             <button className="btn btn-lg btn-primary btn-block" type="submit">Register</button>
             <Link className="btn btn-lg btn-secondary btn-block" to="/signin">Already a User?</Link>
         </form>
+        </div>
      );
 }
 

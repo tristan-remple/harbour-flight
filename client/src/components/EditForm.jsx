@@ -1,17 +1,36 @@
 import { useForm } from 'react-hook-form';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from 'react';
 
 // the input fields felt repetitive so they've been componentized
 import Input from './Input';
 import Alert from './Alert';
 import apiService from '../services/apiService';
 
-const CreateForm = ({ status, setStatus }) => {
+const EditForm = ({ status, setStatus }) => {
 
     // bring in form stuff
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const navigate = useNavigate();
+    const { birdId } = useParams();
+    
+    // create the birds state
+    const [ bird, setBird ] = useState([]);
+
+    // call api service to retrieve data
+    apiService.getOneBird(birdId, data => {
+        if (data[0]) {
+            setBird(data[1]);
+        } else {
+            // if there's an error, we display the api error message in a warning box
+            const newStatus = {
+                message: data[1],
+                type: "warning"
+            }
+            setStatus(newStatus);
+        }
+    });
 
     // function called on successful submit
     const processSubmit = (data) => {
@@ -28,7 +47,7 @@ const CreateForm = ({ status, setStatus }) => {
             }
         }
 
-        apiService.createBird(submitData, result => {
+        apiService.editBird(birdId, submitData, result => {
 
             // status refers to the messages stored in state
             let newStatus;
@@ -40,7 +59,7 @@ const CreateForm = ({ status, setStatus }) => {
                 // set the new status
                 // message string is null in this case, it's set here instead of by the api
                 newStatus = {
-                    message: "The new bird has been registered.",
+                    message: "The bird has been updated.",
                     type: "success"
                 }
                 setStatus(newStatus);
@@ -75,6 +94,7 @@ const CreateForm = ({ status, setStatus }) => {
                     title="Common Name"
                     type="text"
                     register={register}
+                    value={bird.commonName}
                     error={errors.commonName && errors.commonName.message}
                 />
 
@@ -83,6 +103,7 @@ const CreateForm = ({ status, setStatus }) => {
                     title="Observations"
                     type="number"
                     register={register}
+                    value={bird.observations}
                     error={errors.observations && errors.observations.message}
                 />
                 
@@ -95,6 +116,7 @@ const CreateForm = ({ status, setStatus }) => {
                     title="Order"
                     type="text"
                     register={register}
+                    value={bird.scientificName && bird.scientificName.order}
                     error={errors.order && errors.order.message}
                 />
 
@@ -103,6 +125,7 @@ const CreateForm = ({ status, setStatus }) => {
                     title="Family"
                     type="text"
                     register={register}
+                    value={bird.scientificName && bird.scientificName.family}
                     error={errors.family && errors.family.message}
                 />
 
@@ -111,6 +134,7 @@ const CreateForm = ({ status, setStatus }) => {
                     title="Genus"
                     type="text"
                     register={register}
+                    value={bird.scientificName && bird.scientificName.genus}
                     error={errors.genus && errors.genus.message}
                 />
 
@@ -119,6 +143,7 @@ const CreateForm = ({ status, setStatus }) => {
                     title="Species"
                     type="text"
                     register={register}
+                    value={bird.scientificName && bird.scientificName.species}
                     error={errors.species && errors.species.message}
                 />
 
@@ -131,4 +156,4 @@ const CreateForm = ({ status, setStatus }) => {
     )
 }
 
-export default CreateForm;
+export default EditForm;

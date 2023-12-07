@@ -5,9 +5,10 @@ import authService from '../services/authService.js';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
+import Input from './Input.jsx';
 import Alert from './Alert';
 
-const SignIn = ({ status, setStatus, toggle }) => {
+const SignIn = ({ status, setStatus }) => {
 
     const navigate = useNavigate();
 
@@ -53,28 +54,28 @@ const SignIn = ({ status, setStatus, toggle }) => {
 
     // display the form
     return ( 
-        <form className="form-signin" onSubmit={handleSubmit(sendCredentials)}>
-            <Alert message={status.message} type={status.type} />
-            <h1 className="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
-            <label htmlFor="inputEmail" className="sr-only">Email address</label>
-            <input 
-                type="email"
-                id="inputEmail"
-                className="form-control"
-                placeholder="Email address"
-                {...register("email")}
-            />
-            <label htmlFor="inputPassword" className="sr-only">Password</label>
-            <input
-                type="password"
-                id="inputPassword"
-                className="form-control"
-                placeholder="Password"
-                {...register("password")}
-            />
-            <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-            <Link className="btn btn-lg btn-secondary btn-block" to="/register">Not a User?</Link>
-        </form>
+        <div className="card m-3">
+        <h2 className="card-header">Sign In</h2>
+    <form className="card-body" onSubmit={handleSubmit(sendCredentials)}>
+        <Alert message={status.message} type={status.type} />
+        <Input 
+            name="email"
+            title="Email"
+            type="email"
+            register={register}
+            error={errors.email && errors.email.message}
+        />
+        <Input 
+            name="password"
+            title="Password"
+            type="password"
+            register={register}
+            error={errors.password && errors.password.message}
+        />
+        <button className="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+        <Link className="btn btn-lg btn-secondary btn-block" to="/register">Not a User?</Link>
+    </form>
+    </div>
     );
 }
  

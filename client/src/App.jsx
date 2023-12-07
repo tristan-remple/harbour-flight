@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Register from './components/Register';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateForm from './components/CreateForm';
+import EditForm from './components/EditForm';
 
 const App = () => {
 
@@ -26,11 +27,12 @@ const App = () => {
       <NavBar setStatus={setStatus} />
       <div id="main-content">
         <Routes>
-          <Route path="/" element={<Main status={status} />} />
+          <Route path="/" element={<Main status={status} setStatus={setStatus} />} />
           <Route path="/signin" element={<SignIn status={status} setStatus={setStatus} />} />
           <Route path="/register" element={<Register status={status} setStatus={setStatus} />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path="/create" element={<CreateForm />} />
+            <Route path="/create" element={<CreateForm status={status} setStatus={setStatus} />} />
+            <Route path="/:birdId/edit" element={<EditForm status={status} setStatus={setStatus} />} />
           </Route>
         </Routes>
       </div>
