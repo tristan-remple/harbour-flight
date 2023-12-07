@@ -20,19 +20,26 @@ const App = () => {
     type: null
   });
 
+  const clearStatus = () => {
+    setStatus({
+      message: null,
+      type: null
+    });
+  }
+
   // the status is passed into all three routes
   // but the main page does not need to be able to update the status
   return (
     <React.Fragment>
-      <NavBar setStatus={setStatus} />
+      <NavBar setStatus={setStatus} clearStatus={clearStatus} />
       <div id="main-content">
         <Routes>
-          <Route path="/" element={<Main status={status} setStatus={setStatus} />} />
-          <Route path="/signin" element={<SignIn status={status} setStatus={setStatus} />} />
-          <Route path="/register" element={<Register status={status} setStatus={setStatus} />} />
+          <Route path="/" element={<Main status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
+          <Route path="/signin" element={<SignIn status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
+          <Route path="/register" element={<Register status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path="/create" element={<CreateForm status={status} setStatus={setStatus} />} />
-            <Route path="/:birdId/edit" element={<EditForm status={status} setStatus={setStatus} />} />
+            <Route path="/create" element={<CreateForm status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
+            <Route path="/:birdId/edit" element={<EditForm status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
           </Route>
         </Routes>
       </div>

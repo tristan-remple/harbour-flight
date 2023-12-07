@@ -46,7 +46,7 @@ Currently, two official plugins are available:
 ### Req. 4
 - ✅ delete verification
 - ✅ delete functionality
-- rerender on delete
+- ✅ rerender on delete
 
 ### Req. 5
 - ✅ search functionality
@@ -54,3 +54,4 @@ Currently, two official plugins are available:
 ### Other
 - ✅ api service
 - more form fields
+- view one bird

@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
 
 import apiService from '../services/apiService';
 
-export default function Card({ bird, setStatus }) {
-
-    const navigate = useNavigate();
+export default function Card({ bird, setStatus, clearStatus, onDelete }) {
 
     // convert the scientific name from an object with many keys to a string of 3 latin words
     const noSub = ({subSpecies, species, ...rest}) => rest;
@@ -28,6 +25,7 @@ export default function Card({ bird, setStatus }) {
                         type: "success"
                     }
                     setStatus(newStatus);
+                    onDelete();
                 } else {
                     console.log(result);
 
@@ -60,11 +58,10 @@ export default function Card({ bird, setStatus }) {
                 </p>
                 <div className="d-flex justify-content-between align-items-center">
                 <div className="btn-group">
-                    <Link to={`/${bird._id}`} className="btn btn-sm btn-outline-secondary">View</Link>
-                    <Link to={`/${bird._id}/edit`} className="btn btn-sm btn-outline-secondary">Edit</Link>
+                    <Link to={`/${bird._id}`} className="btn btn-sm btn-outline-secondary" onClick={() => clearStatus()}>View</Link>
+                    <Link to={`/${bird._id}/edit`} className="btn btn-sm btn-outline-secondary" onClick={() => clearStatus()}>Edit</Link>
                     <div onClick={() => deleteBird(bird._id, bird.commonName)} className="btn btn-sm btn-outline-secondary">Delete</div>
                 </div>
-                <small className="text-muted">9 mins</small>
                 </div>
             </div>  
             </div>

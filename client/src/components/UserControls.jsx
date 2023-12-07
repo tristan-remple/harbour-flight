@@ -3,7 +3,7 @@ import authService from '../services/authService';
 import { useNavigate, useLocation } from "react-router-dom";
 
 // this is a fragment of the navbar that displays user controls
-const UserControls = ({ setStatus, }) => {
+const UserControls = ({ setStatus, clearStatus }) => {
 
     useLocation();
     const navigate = useNavigate();
@@ -54,8 +54,8 @@ const UserControls = ({ setStatus, }) => {
             <li className="nav-item dropdown">
                 <div className="nav-link dropdown-toggle" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Join Us</div>
                 <div className="dropdown-menu bg-dark" aria-labelledby="dropdown07">
-                    <Link className="nav-link" to="/signin">Sign In</Link>
-                    <Link className="nav-link" to="/register">Register</Link>
+                    <Link className="nav-link" to="/signin" onClick={() => clearStatus()}>Sign In</Link>
+                    <Link className="nav-link" to="/register" onClick={() => clearStatus()}>Register</Link>
                 </div>
             </li>
         )

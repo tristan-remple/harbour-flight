@@ -7,14 +7,19 @@ import Card from './Card';
 import Alert from './Alert';
 import apiService from '../services/apiService';
 
-const Main = ({ status, setStatus }) => {
+const Main = ({ status, setStatus, clearStatus }) => {
 
   // create the birds state
   const [ birds, setBirds ] = useState([]);
   const [ filteredBirds, setFilteredBirds ] = useState([]);
+  const [ deleteCount, setDeleteCount ] = useState(0);
+
+  const onDelete = () => {
+    setDeleteCount(deleteCount + 1);
+  }
 
   // call api service to retrieve data
-  apiService.getBirds(data => {
+  apiService.getBirds(deleteCount, data => {
     if (data[0]) {
       setBirds(data[1]);
       setFilteredBirds(data[1]);
@@ -89,7 +94,10 @@ const Main = ({ status, setStatus }) => {
                 // instead of assigning the map to a variable, we can output it directly
                 filteredBirds.map(bird => {
                   return (
-                    <Card bird={bird} key={bird._id} setStatus={setStatus} />
+                    <Card bird={bird} key={bird._id}
+                      setStatus={setStatus} clearStatus={() => clearStatus()}
+                      onDelete={onDelete}
+                    />
                   )
                 })
               }

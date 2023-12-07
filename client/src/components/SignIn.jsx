@@ -72,8 +72,8 @@ const SignIn = ({ status, setStatus }) => {
             register={register}
             error={errors.password && errors.password.message}
         />
-        <button className="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
-        <Link className="btn btn-lg btn-secondary btn-block" to="/register">Not a User?</Link>
+        <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={() => clearStatus()}>Sign In</button>
+        <Link className="btn btn-lg btn-secondary btn-block" to="/register" onClick={() => clearStatus()}>Not a User?</Link>
     </form>
     </div>
     );

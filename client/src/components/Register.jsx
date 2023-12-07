@@ -8,7 +8,7 @@ import Alert from './Alert';
 import Input from './Input';
 import authService from '../services/authService';
 
-const Register = ({ status, setStatus }) => {
+const Register = ({ status, setStatus, clearStatus }) => {
 
     // set up navigation
     const navigate = useNavigate();
@@ -87,8 +87,8 @@ const Register = ({ status, setStatus }) => {
                 register={register}
                 error={errors.password && errors.password.message}
             />
-            <button className="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-            <Link className="btn btn-lg btn-secondary btn-block" to="/signin">Already a User?</Link>
+            <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={() => clearStatus()}>Register</button>
+            <Link className="btn btn-lg btn-secondary btn-block" to="/signin" onClick={() => clearStatus()}>Already a User?</Link>
         </form>
         </div>
      );

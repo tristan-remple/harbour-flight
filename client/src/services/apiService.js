@@ -15,7 +15,7 @@ class apiService {
     url = import.meta.env.VITE_API_URL;
 
     // make an api call to retrieve all birds
-    getBirds(callback) {
+    getBirds(deleteCount, callback) {
         
         // use effect two arguments: function. condition for rerunning the function.
         // in this case we only want to run the function once
@@ -38,7 +38,7 @@ class apiService {
             }).catch(err => {
                 console.log(err);
             })
-        }, []);
+        }, [deleteCount]);
     }
 
     // get one specific bird
