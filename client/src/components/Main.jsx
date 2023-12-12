@@ -54,6 +54,7 @@ const Main = ({ status, setStatus, clearStatus }) => {
   // this function is called when the search button is clicked
   const applyFilter = () => {
 
+    clearStatus();
     // it gets the value of the search bar
     const searchKey = document.getElementById("search").value;
 

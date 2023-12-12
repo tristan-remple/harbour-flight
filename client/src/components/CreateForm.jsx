@@ -36,17 +36,36 @@ const CreateForm = ({ status, setStatus }) => {
             // if [success] is true
             if (result[0]) {
                 console.log(result);
-
-                // set the new status
-                // message string is null in this case, it's set here instead of by the api
                 newStatus = {
-                    message: "The new bird has been registered.",
+                    message: "The bird has been updated.",
                     type: "success"
                 }
-                setStatus(newStatus);
 
-                // navigate to home
-                navigate("/");
+                // the photo is optional
+                if (photo[0]) {
+                    apiService.uploadImage(photo[0], result => {
+                        if (result[0]) {
+                            setStatus(newStatus);
+
+                            // navigate to home
+                            navigate("/");
+                        } else {
+                            console.log(result);
+            
+                            // if there's an error, we display the api error message in a warning box
+                            const newStatus = {
+                                message: result[1],
+                                type: "warning"
+                            }
+                            setStatus(newStatus);
+                        }
+                    });
+                } else {
+                    setStatus(newStatus);
+
+                    // navigate to home
+                    navigate("/");
+                }
             } else {
                 console.log(result);
 
@@ -123,8 +142,19 @@ const CreateForm = ({ status, setStatus }) => {
                 />
 
             </fieldset>
+            <fieldset>
+                <legend>Image</legend>
+                <Input 
+                    name="photo"
+                    title="Photo"
+                    type="file"
+                    register={register}
+                    value={null}
+                    error={errors.photo && errors.photo.message}
+                />
+            </fieldset>
 
-            <input type="submit" className="btn btn-primary" />
+            <input type="submit" className="btn btn-primary" value="Add Record" />
 
         </form>
         </div>

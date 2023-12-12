@@ -9,17 +9,18 @@ import Register from './components/Register';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateForm from './components/CreateForm';
 import EditForm from './components/EditForm';
+import Details from './components/Details';
 
 const App = () => {
 
-  // status is our "flash message"
-  // it's stored in state so that a message generated on register can display on main
-  // but right now it's lingering much longer than i'd prefer
+  // status is our flash message
+  // it's stored in state so that a message generated on register can display on main etc
   const [ status, setStatus ] = useState({
     message: null,
     type: null
   });
 
+  // called on any navigation that doesn't set a status
   const clearStatus = () => {
     setStatus({
       message: null,
@@ -27,8 +28,7 @@ const App = () => {
     });
   }
 
-  // the status is passed into all three routes
-  // but the main page does not need to be able to update the status
+  // the status is passed into all routes
   return (
     <React.Fragment>
       <NavBar setStatus={setStatus} clearStatus={clearStatus} />
@@ -37,6 +37,7 @@ const App = () => {
           <Route path="/" element={<Main status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
           <Route path="/signin" element={<SignIn status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
           <Route path="/register" element={<Register status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
+          <Route path="/:birdId" element={<Details status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="/create" element={<CreateForm status={status} setStatus={setStatus} clearStatus={clearStatus} />} />
             <Route path="/:birdId/edit" element={<EditForm status={status} setStatus={setStatus} clearStatus={clearStatus} />} />

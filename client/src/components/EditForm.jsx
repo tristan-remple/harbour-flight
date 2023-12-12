@@ -36,15 +36,18 @@ const EditForm = ({ status, setStatus }) => {
     const processSubmit = (data) => {
 
         // destructure the data so that it fits the schema
-        const {commonName, observations, order, family, genus, species} = data;
-        const submitData =  { commonName,
+        const {commonName, observations, order, family, genus, species, photo} = data;
+        const filename = photo[0].name;
+        const submitData =  {
+            commonName,
             observations,
             scientificName: {
                 order,
                 family,
                 genus,
                 species
-            }
+            },
+            photo: filename
         }
 
         apiService.editBird(birdId, submitData, result => {
@@ -55,17 +58,36 @@ const EditForm = ({ status, setStatus }) => {
             // if [success] is true
             if (result[0]) {
                 console.log(result);
-
-                // set the new status
-                // message string is null in this case, it's set here instead of by the api
                 newStatus = {
                     message: "The bird has been updated.",
                     type: "success"
                 }
-                setStatus(newStatus);
 
-                // navigate to home
-                navigate("/");
+                // the photo is optional
+                if (photo[0]) {
+
+                    // upload endpoint is separate, but returns approximately the same stuff
+                    apiService.uploadImage(photo[0], result => {
+                        if (result[0]) {
+                            setStatus(newStatus);
+
+                            // navigate to home
+                            navigate("/");
+                        } else {
+                            console.log(result);
+            
+                            // if there's an error, we display the api error message in a warning box
+                            const newStatus = {
+                                message: result[1],
+                                type: "warning"
+                            }
+                            setStatus(newStatus);
+                        }
+                    });
+                } else { // in the success block with no image
+                    setStatus(newStatus);
+                    navigate("/");
+                }
             } else {
                 console.log(result);
 
@@ -76,14 +98,14 @@ const EditForm = ({ status, setStatus }) => {
                 }
                 setStatus(newStatus);
             }
-        })
+        });
 
     };
 
     // jsx
     return (
         <div className="card m-3">
-            <h2 className="card-header">Record a Bird</h2>
+            <h2 className="card-header">Update a Bird</h2>
         <form className="card-body" onSubmit={handleSubmit(processSubmit)} >
             <Alert message={status.message} type={status.type} />
             <fieldset>
@@ -148,8 +170,25 @@ const EditForm = ({ status, setStatus }) => {
                 />
 
             </fieldset>
+            <fieldset>
+                <legend>Image</legend>
+                <div className="row mb-3 mx-3">
+                    <label htmlFor="current" className="col-sm-2 col-form-label">
+                        Current Photo
+                    </label>
+                    <img src={`../img/${bird.photo}`} alt={bird.commonName} className="mw-50" />
+                </div>
+                <Input 
+                    name="photo"
+                    title="New Photo"
+                    type="file"
+                    register={register}
+                    value={null}
+                    error={errors.photo && errors.photo.message}
+                />
+            </fieldset>
 
-            <input type="submit" className="btn btn-primary" />
+            <input type="submit" className="btn btn-primary" value="Update Record" />
 
         </form>
         </div>

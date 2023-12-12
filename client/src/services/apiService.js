@@ -105,6 +105,38 @@ class apiService {
         }); // end axios
     }
 
+    uploadImage(file, callback) {
+
+        // we need to set an additional header for sending files
+        const uploadOptions = {
+            ...this.axiosOptions,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        };
+        
+        // encase the file in formData to match the header
+        const formData = new FormData();
+        formData.append("photo", file);
+
+        // send a request as normal
+        axios.post(`${this.url}/birds/image`, formData, uploadOptions).then(response => {
+            switch (response.status) {
+                case 201: {
+                    // inform the component of the success
+                    callback([true, null]);
+                    break;
+                }
+                default: {
+                    // if it fails, tell the component why
+                    console.log(response);
+                    callback([false, response.data]);
+                    break;
+                }
+            } // end switch
+        })
+    }
+
     deleteBird(birdId, callback) {
         axios.delete(`${this.url}/birds/${birdId}`, this.axiosOptions).then(response => {
             switch (response.status) {

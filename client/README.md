@@ -33,7 +33,7 @@ Currently, two official plugins are available:
 - ✅ validate create
 - ✅ validate signin
 - ✅ validate register
-- increase validation
+- ✅ increase validation
 
 ### Req. 2
 - ✅ navbar displays user status
