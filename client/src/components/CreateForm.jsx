@@ -17,7 +17,9 @@ const CreateForm = ({ status, setStatus }) => {
     const processSubmit = (data) => {
 
         // destructure the data so that it fits the schema
-        const {commonName, observations, order, family, genus, species} = data;
+        const {commonName, observations, order, family, genus, species, photo} = data;
+
+        const filename = photo[0] ? photo[0].name : "";
         const submitData =  { commonName,
             observations,
             scientificName: {
@@ -25,7 +27,8 @@ const CreateForm = ({ status, setStatus }) => {
                 family,
                 genus,
                 species
-            }
+            },
+            photo: filename
         }
 
         apiService.createBird(submitData, result => {
@@ -37,12 +40,12 @@ const CreateForm = ({ status, setStatus }) => {
             if (result[0]) {
                 console.log(result);
                 newStatus = {
-                    message: "The bird has been updated.",
+                    message: `Record on ${commonName} created.`,
                     type: "success"
                 }
 
                 // the photo is optional
-                if (photo[0]) {
+                if (photo && photo[0]) {
                     apiService.uploadImage(photo[0], result => {
                         if (result[0]) {
                             setStatus(newStatus);

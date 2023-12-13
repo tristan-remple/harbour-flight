@@ -54,4 +54,5 @@ Currently, two official plugins are available:
 ### Other
 - ✅ api service
 - more form fields
-- view one bird
+- ✅ view one bird
+- ✅ image uploads

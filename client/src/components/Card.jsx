@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import apiService from '../services/apiService';
+import authService from '../services/authService';
 
 export default function Card({ bird, setStatus, clearStatus, onDelete }) {
 
@@ -9,7 +10,7 @@ export default function Card({ bird, setStatus, clearStatus, onDelete }) {
     const sciName = Object.values(noSub({...bird.scientificName})).join(" ");
 
     const deleteBird = (birdId, birdName) => {
-        if (confirm(`Are you sure you want to delete ${birdName}?`)) {
+        if (authService.isSignedIn() && confirm(`Are you sure you want to delete ${birdName}?`)) {
             apiService.deleteBird(birdId, result => {
                 // status refers to the messages stored in state
                 let newStatus;

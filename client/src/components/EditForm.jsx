@@ -37,7 +37,9 @@ const EditForm = ({ status, setStatus }) => {
 
         // destructure the data so that it fits the schema
         const {commonName, observations, order, family, genus, species, photo} = data;
-        const filename = photo[0].name;
+
+        // if a photo has been uploaded, update the filename. otherwise use the old filename
+        const filename = photo[0] ? photo[0].name : bird.photo;
         const submitData =  {
             commonName,
             observations,
@@ -59,12 +61,12 @@ const EditForm = ({ status, setStatus }) => {
             if (result[0]) {
                 console.log(result);
                 newStatus = {
-                    message: "The bird has been updated.",
+                    message: `Record on ${commonName} has been updated.`,
                     type: "success"
                 }
 
                 // the photo is optional
-                if (photo[0]) {
+                if (photo && photo[0]) {
 
                     // upload endpoint is separate, but returns approximately the same stuff
                     apiService.uploadImage(photo[0], result => {
@@ -88,6 +90,7 @@ const EditForm = ({ status, setStatus }) => {
                     setStatus(newStatus);
                     navigate("/");
                 }
+                console.log("nooooo");
             } else {
                 console.log(result);
 

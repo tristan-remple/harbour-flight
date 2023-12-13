@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import Alert from './Alert';
 import apiService from '../services/apiService';
+import authService from '../services/authService';
 
 export default function Details({ status, setStatus, clearStatus }) {
 
@@ -31,7 +32,7 @@ export default function Details({ status, setStatus, clearStatus }) {
     const sciName = bird.scientificName ? Object.values(noSub({...bird.scientificName})).join(" ") : null;
 
     const deleteBird = (birdId, birdName) => {
-        if (confirm(`Are you sure you want to delete ${birdName}?`)) {
+        if (authService.isSignedIn() && confirm(`Are you sure you want to delete ${birdName}?`)) {
             apiService.deleteBird(birdId, result => {
                 // status refers to the messages stored in state
                 let newStatus;
