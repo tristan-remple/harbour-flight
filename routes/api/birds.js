@@ -57,7 +57,7 @@ function catchError(err, res) {
 router.get('/', (req, res) => {
 
     // find query with no criteria, execute the query and then process the promise
-    Bird.find().exec().then(birds => {
+    Bird.find().sort({'observations': 'desc'}).exec().then(birds => {
         
         // the promise gives us the data, we send it with the default 200 status
         if (birds) {

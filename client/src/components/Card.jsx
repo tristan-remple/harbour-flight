@@ -43,7 +43,7 @@ export default function Card({ bird, setStatus, clearStatus, onDelete }) {
 
     return (
         <div className="col-md-4">
-            <div className="card mb-4 box-shadow">
+            <div className="card mb-4 box-shadow bg-light">
             <img 
                 className="card-img-top" 
                 alt={bird.commonName} 

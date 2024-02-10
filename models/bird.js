@@ -49,7 +49,7 @@ const locationSchema = mongoose.Schema({
             }
         }
     },
-    lat: {
+    lon: {
         type: Number,
         min: 0,
         max: 180,
