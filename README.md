@@ -1,3 +1,3 @@
-# My FullStack App
+# Harbour Flight
 
-This repository will contain your FullStack application which you will build over the course of the entire semester.
+A bird-watching companion app for the Halifax area. Made to explore Javascript frameworks.
