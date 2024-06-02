@@ -82,6 +82,7 @@ node_modules
 dist
 dist-ssr
 *.local
+custom.css
 
 # Editor directories and files
 .vscode/*

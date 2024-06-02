@@ -76,7 +76,7 @@ export default function Details({ status, setStatus, clearStatus }) {
             <div className="card-body">
                 <h3>{bird.commonName}</h3>
                 <p className="card-text">
-                    <small className="text-muted">{bird.observations} observations</small><br />
+                    <small className="muted">{bird.observations} observations</small><br />
                     {sciName}<br />
                     { sciName && <em>{bird.scientificName.species}</em> }
                 </p>

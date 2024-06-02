@@ -43,7 +43,7 @@ const UserControls = ({ setStatus, clearStatus }) => {
         return (
             <li className="nav-item dropdown">
                 <div className="nav-link dropdown-toggle" id="dropdown06" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{ authService.currentUser() }</div>
-                <div className="dropdown-menu bg-dark" aria-labelledby="dropdown06">
+                <div className="dropdown-menu" aria-labelledby="dropdown06">
                     <div className="nav-link" onClick={signOut} >Sign Out</div>
                 </div>
             </li>
@@ -53,7 +53,7 @@ const UserControls = ({ setStatus, clearStatus }) => {
         return (
             <li className="nav-item dropdown">
                 <div className="nav-link dropdown-toggle" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Join Us</div>
-                <div className="dropdown-menu bg-dark" aria-labelledby="dropdown07">
+                <div className="dropdown-menu" aria-labelledby="dropdown07">
                     <Link className="nav-link" to="/signin" onClick={() => clearStatus()}>Sign In</Link>
                     <Link className="nav-link" to="/register" onClick={() => clearStatus()}>Register</Link>
                 </div>

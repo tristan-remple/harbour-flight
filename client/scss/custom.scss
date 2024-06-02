@@ -1,0 +1,147 @@
+[data-bs-theme="birds"] {
+  $sand: #D9D1C9;
+  $wave: #CBD3D3;
+  $dk-sand: #B9A7A1;
+  $cream: #F0DECD;
+  $lt-blue: #ABD8EA;
+  $dk-teal: #283538;
+  $brown: #473F3F;
+  $dk-brown: #21191D;
+
+  @mixin mitr {
+    font-family: "Mitr", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  @mixin oregano {
+    font-family: "Oregano", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @mixin hover-dark {
+    background-color: $dk-teal;
+    border-color: $dk-teal;
+    color: $lt-blue;
+  }
+
+  @mixin hover-light {
+    background-color: $lt-blue;
+    border-color: $dk-teal;
+    color: $dk-teal;
+  }
+
+  :focus {
+    outline-color: rgba($lt-blue, 0.5);
+  }
+
+  #root {
+    @include mitr;
+    background-color: $sand;
+    background-image: linear-gradient($wave, $sand);
+  }
+
+  .navbar, footer {
+    background-color: $dk-sand;
+    color: $dk-brown;
+    a {
+      color: $dk-brown;
+    }
+    .nav-item:hover, .navbar-brand:hover,
+    .nav-item:focus, .navbar-brand:focus {
+      background-color: $cream;
+    }
+    .navbar-brand {
+      @include oregano;
+      font-size: 1.6rem;
+      padding: 0.5rem;
+    }
+  }
+
+  .navbar {
+    border-bottom: 1px solid $brown;
+  }
+
+  footer {
+    border-top: 1px solid $brown;
+  }
+
+  .bg-accent {
+    background-color: $sand;
+    color: $dk-brown;
+    border-bottom: 1px solid $dk-sand;
+  }
+
+  .card {
+    background-color: $dk-sand;
+    color: $dk-brown;
+    border-color: $brown;
+    .card-img-top {
+      border-bottom: 1px solid $brown;
+    }
+    h3 {
+      @include oregano;
+    }
+  }
+
+  .muted {
+    color: $brown;
+  }
+
+  .form-control {
+    background-color: $cream;
+    color: $brown;
+    border-color: $brown;
+    &:focus {
+      background-color: $lt-blue;
+      border-color: $dk-teal;
+      &::placeholder {
+        color: rgba($dk-teal, 0.4);
+      }
+    }
+  }
+
+  ::placeholder {
+    color: rgba($brown, 0.4);
+  }
+
+  .btn-primary {
+    background-color: $lt-blue;
+    color: $dk-teal;
+    border-color: $dk-teal;
+    &:focus, &:hover {
+      @include hover-dark;
+    }
+  }
+
+  .btn-secondary {
+    background-color: $brown;
+    color: $cream;
+    border-color: $brown;
+    &:focus, &:hover {
+      @include hover-dark;
+    }
+  }
+
+  .btn-outline-secondary {
+    background-color: $cream;
+    border-color: $brown;
+    color: $brown;
+    &:hover, &:focus {
+      @include hover-light;
+    }
+  }
+
+  .dropdown-menu {
+    background-color: $cream;
+    color: $brown;
+    border-color: $brown;
+    .nav-link {
+      &:hover, &:focus {
+        @include hover-light;
+      }
+    }
+  }
+}
+  

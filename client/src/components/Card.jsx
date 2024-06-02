@@ -43,7 +43,7 @@ export default function Card({ bird, setStatus, clearStatus, onDelete }) {
 
     return (
         <div className="col-md-4">
-            <div className="card mb-4 box-shadow bg-light">
+            <div className="card mb-4">
             <img 
                 className="card-img-top" 
                 alt={bird.commonName} 
@@ -53,7 +53,7 @@ export default function Card({ bird, setStatus, clearStatus, onDelete }) {
             <div className="card-body">
                 <h3>{bird.commonName}</h3>
                 <p className="card-text">
-                    <small className="text-muted">{bird.observations} observations</small><br />
+                    <small className="muted">{bird.observations} observations</small><br />
                     {sciName}<br />
                     <em>{bird.scientificName.species}</em>
                 </p>

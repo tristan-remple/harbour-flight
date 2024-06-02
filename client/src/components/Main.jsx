@@ -77,7 +77,7 @@ const Main = ({ status, setStatus, clearStatus }) => {
         <section className="p-5 text-center bg-accent">
           <div className="container">
             <div className="input-group">
-              <input type="text" className="form-control bg-light" placeholder="Search this site" id="search" />
+              <input type="text" className="form-control" placeholder="Search this site" id="search" />
               <div className="input-group-append">
                 <button className="btn btn-secondary" type="button" onClick={applyFilter}>
                   <i className="fa fa-search"></i>
@@ -87,7 +87,7 @@ const Main = ({ status, setStatus, clearStatus }) => {
           </div>
         </section>
 
-        <div className="album py-5 bg-light">
+        <div className="album py-5">
         <Alert message={status.message} type={status.type} />
           <div className="container">
             <div className="row">

@@ -81,7 +81,7 @@ router.post('/register', (req, res) => {
                     newUser.save().then(result => {
 
                         // using environment variable for the secret
-                        const token = jwt.sign({ email: findres.email }, process.env.JWT_SECRET);
+                        const token = jwt.sign({ email: result.email }, process.env.JWT_SECRET);
 
                         // Set a cookie with the secure and HttpOnly flags
                         const cookieOptions = {
@@ -89,7 +89,6 @@ router.post('/register', (req, res) => {
                             httpOnly: true,
                             path: '/'
                         };
-
 
                         // Set the cookie in the response header
                         res.cookie("jwt", token, cookieOptions);

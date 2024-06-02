@@ -10,6 +10,7 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateForm from './components/CreateForm';
 import EditForm from './components/EditForm';
 import Details from './components/Details';
+import './css/custom.css'
 
 const App = () => {
 
